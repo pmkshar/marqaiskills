@@ -435,3 +435,18 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
+/* Agent Prompt Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.dot-pulse {
+  display: inline-block;
+}
+
+/* Prompt textarea auto-resize */
+textarea {
+  field-sizing: content;
+}
