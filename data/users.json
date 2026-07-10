@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "admin-001",
+      "name": "Admin User",
+      "email": "admin@marqai.io",
+      "password": "$2a$10$F/otaRY2N1CicpLufOaJxuIB77vfPXH9f4gFHLDk0xb5/JEW68iYK",
+      "role": "admin",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "status": "active"
+    },
+    {
+      "id": "manager-001",
+      "name": "Manager User",
+      "email": "manager@marqai.io",
+      "password": "$2a$10$F/otaRY2N1CicpLufOaJxuIB77vfPXH9f4gFHLDk0xb5/JEW68iYK",
+      "role": "manager",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "status": "active"
+    },
+    {
+      "id": "editor-001",
+      "name": "Editor User",
+      "email": "editor@marqai.io",
+      "password": "$2a$10$F/otaRY2N1CicpLufOaJxuIB77vfPXH9f4gFHLDk0xb5/JEW68iYK",
+      "role": "editor",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "status": "active"
+    },
+    {
+      "id": "viewer-001",
+      "name": "Viewer User",
+      "email": "viewer@marqai.io",
+      "password": "$2a$10$F/otaRY2N1CicpLufOaJxuIB77vfPXH9f4gFHLDk0xb5/JEW68iYK",
+      "role": "viewer",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "status": "active"
+    }
+  ]
+}
