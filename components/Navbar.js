@@ -44,6 +44,10 @@ export default function Navbar() {
             Skills
           </Link>
           
+          <Link href="/agents" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textDecoration: 'none' }}>
+            Agents
+          </Link>
+          
           {(role === 'admin' || role === 'manager') && (
             <Link href="/admin" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textDecoration: 'none' }}>
               Admin

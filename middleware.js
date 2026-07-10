@@ -26,8 +26,8 @@ export async function middleware(request) {
     
     const role = token.role;
     
-    // Admin-only routes
-    if (pathname.startsWith('/admin') && role !== 'admin') {
+    // Admin-only routes (admin + manager can access)
+    if (pathname.startsWith('/admin') && !['admin', 'manager'].includes(role)) {
       return NextResponse.redirect(new URL('/?error=unauthorized', request.url));
     }
     
