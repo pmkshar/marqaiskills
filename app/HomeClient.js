@@ -12,15 +12,18 @@ function SkillCard({ skill, onClick, canEdit, canDelete }) {
       style={{ '--card-color': skill.color }}
     >
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: skill.color }} />
-      <div className="skill-card-name">{skill.icon} {skill.name}</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+        <span style={{ fontSize: '1.2rem' }}>{skill.icon}</span>
+        <div className="skill-card-name" style={{ marginBottom: 0 }}>{skill.name}</div>
+      </div>
       <div className="skill-card-description">{skill.description}</div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 12 }}>
         <div className="skill-card-slug">{skill.slug}</div>
         {canEdit && (
-          <span style={{ fontSize: '0.7rem', color: '#3b82f6', background: 'rgba(59,130,246,0.1)', padding: '2px 6px', borderRadius: 4 }}>Editable</span>
+          <span style={{ fontSize: '0.65rem', color: '#3b82f6', background: 'rgba(59,130,246,0.1)', padding: '2px 8px', borderRadius: 4, fontWeight: 500 }}>Editable</span>
         )}
         {canDelete && (
-          <span style={{ fontSize: '0.7rem', color: '#ef4444', background: 'rgba(239,68,68,0.1)', padding: '2px 6px', borderRadius: 4 }}>Manageable</span>
+          <span style={{ fontSize: '0.65rem', color: '#ef4444', background: 'rgba(239,68,68,0.1)', padding: '2px 8px', borderRadius: 4, fontWeight: 500 }}>Manageable</span>
         )}
       </div>
     </div>
@@ -77,7 +80,7 @@ function SkillModal({ skill, onClose, canEdit, canDelete }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>&#x2715; Close</button>
+        <button className="modal-close" onClick={onClose}>✕ Close</button>
         <div className="modal-title">{skill.icon} {skill.name}</div>
         <div className="modal-category" style={{ color: skill.color }}>{skill.category}</div>
         <div className="modal-body">{renderMarkdown(skill.content)}</div>
@@ -87,10 +90,10 @@ function SkillModal({ skill, onClose, canEdit, canDelete }) {
 }
 
 const ROLE_INFO = {
-  admin: { label: 'Administrator', color: '#ef4444', desc: 'Full access to all features' },
-  manager: { label: 'Manager', color: '#f59e0b', desc: 'Manage skills & view users' },
-  editor: { label: 'Editor', color: '#3b82f6', desc: 'Create & edit skills' },
-  viewer: { label: 'Viewer', color: '#10b981', desc: 'Read-only access' },
+  admin: { label: 'Administrator', color: '#ef4444', desc: 'Full access to all features', icon: '👑', skills: 'All 173+' },
+  manager: { label: 'Manager', color: '#f59e0b', desc: 'Manage skills & view users', icon: '⭐', skills: '9 Categories' },
+  editor: { label: 'Editor', color: '#3b82f6', desc: 'Create & edit skills', icon: '✏️', skills: '3 Categories' },
+  viewer: { label: 'Viewer', color: '#10b981', desc: 'Read-only access', icon: '👁️', skills: '2 Categories' },
 };
 
 export default function HomeClient({ skills, totalSkills, userRole, permissions, session }) {
@@ -136,24 +139,28 @@ export default function HomeClient({ skills, totalSkills, userRole, permissions,
   const canDelete = permissions?.canDelete || false;
   const canManageUsers = permissions?.canManageUsers || false;
   
-  // If not logged in, show landing page with login prompt
+  // If not logged in, show landing page with infographic hero
   if (!currentSession) {
     return (
       <div>
-        <section className="hero">
-          <div className="hero-badge">&#x26A1; Open Source &bull; MIT License</div>
+        {/* Hero with infographic background */}
+        <section className="hero" style={{ padding: '80px 24px 60px' }}>
+          <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+            <img src="/images/hero-dashboard.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.08 }} />
+          </div>
+          <div className="hero-badge">⚡ Marq AI Skills Platform</div>
           <h1><span className="gradient-text">Marq AI</span> Skills Platform</h1>
-          <p>Production-ready AI skills for business, coding, and everyday life. Sign in to access skills based on your role.</p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, position: 'relative', zIndex: 1 }}>
+          <p>Production-ready AI skills, intelligent agents, and curated AI projects — all in one powerful platform. Sign in to access resources based on your role.</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
             <button
               onClick={() => router.push('/auth/login')}
-              style={{ padding: '14px 32px', background: 'var(--accent)', color: '#fff', border: 'none', borderRadius: 10, fontSize: '1rem', fontWeight: 600, cursor: 'pointer' }}
+              style={{ padding: '14px 32px', background: 'var(--accent)', color: '#fff', border: 'none', borderRadius: 12, fontSize: '1rem', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 16px rgba(99,102,241,0.3)', transition: 'all 0.2s' }}
             >
-              Sign In to Access Skills
+              Sign In to Access
             </button>
             <button
               onClick={() => router.push('/auth/signup')}
-              style={{ padding: '14px 32px', background: 'transparent', color: 'var(--accent-light)', border: '1px solid var(--accent)', borderRadius: 10, fontSize: '1rem', fontWeight: 600, cursor: 'pointer' }}
+              style={{ padding: '14px 32px', background: 'transparent', color: 'var(--accent-light)', border: '1px solid rgba(99,102,241,0.4)', borderRadius: 12, fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s' }}
             >
               Create Account
             </button>
@@ -168,23 +175,55 @@ export default function HomeClient({ skills, totalSkills, userRole, permissions,
               <div className="label">Categories</div>
             </div>
             <div className="hero-stat">
-              <div className="number">4</div>
-              <div className="label">Roles</div>
+              <div className="number">9</div>
+              <div className="label">AI Agents</div>
+            </div>
+            <div className="hero-stat">
+              <div className="number">931</div>
+              <div className="label">AI Projects</div>
             </div>
           </div>
         </section>
         
-        {/* Role overview for non-logged-in users */}
-        <section className="categories-section">
-          <h2 style={{ textAlign: 'center', marginBottom: 32, color: 'var(--text-primary)' }}>Access by Role</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 16, maxWidth: 1100, margin: '0 auto' }}>
+        {/* Feature highlights with infographics */}
+        <section style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px 60px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 20 }}>
+            <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', position: 'relative' }}>
+              <img src="/images/skills-library.png" alt="Skills" style={{ width: '100%', height: 160, objectFit: 'cover', display: 'block' }} />
+              <div style={{ padding: 20, background: 'var(--bg-card)' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 6 }}>🧠 Skills Library</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>173+ production-ready skills across 10 categories — from sales playbooks to engineering tools.</div>
+              </div>
+            </div>
+            <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', position: 'relative' }}>
+              <img src="/images/ai-agents.png" alt="Agents" style={{ width: '100%', height: 160, objectFit: 'cover', display: 'block' }} />
+              <div style={{ padding: 20, background: 'var(--bg-card)' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 6 }}>🤖 AI Agents</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>9 intelligent agents with interactive prompt simulation — from execution to navigation.</div>
+              </div>
+            </div>
+            <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', position: 'relative' }}>
+              <img src="/images/ai-directory.png" alt="Directory" style={{ width: '100%', height: 160, objectFit: 'cover', display: 'block' }} />
+              <div style={{ padding: 20, background: 'var(--bg-card)' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 6 }}>🌐 AI Directory</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>931 curated AI projects across 14 categories — frameworks, models, tools, and more.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Role overview */}
+        <section className="categories-section" style={{ paddingTop: 0 }}>
+          <h2 style={{ textAlign: 'center', marginBottom: 32, color: 'var(--text-primary)', fontSize: '1.4rem' }}>Access by Role</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, maxWidth: 1100, margin: '0 auto' }}>
             {Object.entries(ROLE_INFO).map(([key, info]) => (
-              <div key={key} style={{
-                background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 12,
-                padding: 24, textAlign: 'center',
+              <div key={key} className="glass-card" style={{
+                padding: 28, textAlign: 'center', borderRadius: 16,
               }}>
-                <div style={{ fontSize: '1.2rem', fontWeight: 700, color: info.color, marginBottom: 8 }}>{info.label}</div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{info.desc}</div>
+                <div style={{ fontSize: '2rem', marginBottom: 8 }}>{info.icon}</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: info.color, marginBottom: 6 }}>{info.label}</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: 8 }}>{info.desc}</div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', background: info.color + '10', padding: '4px 10px', borderRadius: 6, display: 'inline-block' }}>{info.skills}</div>
               </div>
             ))}
           </div>
@@ -201,38 +240,54 @@ export default function HomeClient({ skills, totalSkills, userRole, permissions,
     );
   }
   
-  // Logged in - show skills filtered by role
+  // Logged in - show skills with better UI
   return (
     <div>
-      {/* Role banner */}
-      <div style={{
-        background: `linear-gradient(135deg, rgba(99,102,241,0.05), ${roleInfo.color}11)`,
-        borderBottom: '1px solid var(--border)', padding: '16px 24px',
-        display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap',
-      }}>
-        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-          Welcome, <strong style={{ color: 'var(--text-primary)' }}>{currentSession.user.name}</strong>
-        </span>
-        <span style={{
-          fontSize: '0.7rem', fontWeight: 600, color: roleInfo.color,
-          background: roleInfo.color + '20', padding: '3px 8px', borderRadius: 4,
+      {/* Welcome banner with infographic */}
+      <div style={{ position: 'relative', borderRadius: 0, overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', opacity: 0.1 }}>
+          <img src="/images/platform-overview.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </div>
+        <div style={{
+          position: 'relative', zIndex: 1,
+          background: `linear-gradient(135deg, rgba(99,102,241,0.06) 0%, ${roleInfo.color}08 50%, transparent 100%)`,
+          borderBottom: '1px solid var(--border)', padding: '24px 32px',
+          display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap',
         }}>
-          {roleInfo.label}
-        </span>
-        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginLeft: 'auto' }}>
-          {skills.length} of {totalSkills} skills accessible
-        </span>
-        {canManageUsers && (
-          <button
-            onClick={() => router.push('/admin')}
-            style={{
-              padding: '6px 14px', background: 'var(--accent)', color: '#fff', border: 'none',
-              borderRadius: 6, fontSize: '0.8rem', cursor: 'pointer', fontWeight: 500,
-            }}
-          >
-            Manage Users
-          </button>
-        )}
+          <div style={{ width: 48, height: 48, borderRadius: 12, background: roleInfo.color + '20', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem' }}>
+            {roleInfo.icon}
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)' }}>Welcome, {currentSession.user.name}</span>
+              <span style={{
+                fontSize: '0.65rem', fontWeight: 600, color: roleInfo.color,
+                background: roleInfo.color + '20', padding: '3px 8px', borderRadius: 4,
+              }}>
+                {roleInfo.label}
+              </span>
+            </div>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: 2 }}>
+              {skills.length} of {totalSkills} skills accessible &bull; {Object.keys(filteredByCategory).length} categories
+            </div>
+          </div>
+          <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
+            <button
+              onClick={() => router.push('/dashboard')}
+              style={{ padding: '8px 16px', background: 'var(--accent)', color: '#fff', border: 'none', borderRadius: 10, fontSize: '0.8rem', cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}
+            >
+              📊 Dashboard
+            </button>
+            {canManageUsers && (
+              <button
+                onClick={() => router.push('/admin')}
+                style={{ padding: '8px 16px', background: 'var(--bg-card)', color: 'var(--text-secondary)', border: '1px solid var(--border)', borderRadius: 10, fontSize: '0.8rem', cursor: 'pointer', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4 }}
+              >
+                ⚙️ Admin
+              </button>
+            )}
+          </div>
+        </div>
       </div>
       
       {/* Search */}
