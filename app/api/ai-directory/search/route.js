@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { searchProjects, getProjectsByCategory, getCategories } from '../../../../lib/opensource-ai';
+import { searchProjects, getProjectsByCategory, getCategories } from '../../../../lib/ai-directory';
 
 export async function GET(request) {
   try {
@@ -52,7 +52,7 @@ export async function GET(request) {
       categories,
     });
   } catch (error) {
-    console.error('OpenSource AI search error:', error);
+    console.error('AI Directory search error:', error);
     return NextResponse.json(
       { error: 'Failed to search projects' },
       { status: 500 }

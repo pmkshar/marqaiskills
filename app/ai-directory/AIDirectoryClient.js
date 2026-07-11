@@ -60,7 +60,7 @@ function ProjectCard({ project, color, onClick }) {
           rel="noopener noreferrer"
           onClick={e => e.stopPropagation()}
           style={{ color: 'var(--text-muted)', fontSize: '0.8rem', flexShrink: 0, textDecoration: 'none' }}
-          title="Open on GitHub"
+          title="Open repository"
         >
           ↗
         </a>
@@ -137,8 +137,8 @@ function ProjectModal({ project, onClose }) {
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color }}>{project.subcategory}</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Source</td>
-                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-primary)' }}>awesome-opensource-ai</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Platform</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-primary)' }}>Marq AI Skills</td>
                 </tr>
               </tbody>
             </table>
@@ -149,7 +149,7 @@ function ProjectModal({ project, onClose }) {
   );
 }
 
-export default function OpenSourceAIClient({ stats, categories, userRole }) {
+export default function AIDirectoryClient({ stats, categories, userRole }) {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -171,7 +171,7 @@ export default function OpenSourceAIClient({ stats, categories, userRole }) {
         page: String(pageNum),
         limit: String(LIMIT),
       });
-      const res = await fetch(`/api/opensource-ai/search?${params}`);
+      const res = await fetch(`/api/ai-directory/search?${params}`);
       const data = await res.json();
       if (data.success) {
         setProjects(data.results || []);
@@ -215,17 +215,17 @@ export default function OpenSourceAIClient({ stats, categories, userRole }) {
       <div style={{ marginBottom: 28 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
           <h1 style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-            🌐 Open Source AI Directory
+            🌐 Marq AI Directory
           </h1>
           <span style={{
             fontSize: '0.7rem', fontWeight: 700, color: '#6366f1',
             background: 'rgba(99,102,241,0.1)', padding: '4px 10px', borderRadius: 6,
           }}>
-            932 PROJECTS
+            {stats.totalProjects} PROJECTS
           </span>
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-          Curated list of the best truly open-source AI projects, models, tools, and infrastructure. Sourced from <a href="https://github.com/alvinreal/awesome-opensource-ai" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-light)' }}>awesome-opensource-ai</a>. Browse by category or search to find the right tool for your project.
+          Curated directory of the best AI projects, models, tools, and infrastructure — powered by Marq AI. Browse by category or search to find the right tool for your project.
         </p>
       </div>
 
@@ -294,7 +294,7 @@ export default function OpenSourceAIClient({ stats, categories, userRole }) {
         <input
           className="search-input"
           type="text"
-          placeholder="Search 932 open source AI projects by name, description, or category..."
+          placeholder={`Search ${stats.totalProjects} AI projects by name, description, or category...`}
           value={search}
           onChange={handleSearch}
           style={{ width: '100%', maxWidth: 600, paddingLeft: 16 }}

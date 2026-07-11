@@ -723,7 +723,7 @@
   {
     "name": "Marimo",
     "url": "https://github.com/marimo-team/marimo",
-    "description": "A reactive notebook for Python \u2014 run reproducible experiments, query with SQL, execute as a script, deploy as an app, and version with git. Stored as pure Python. All in a modern, AI-native editor.",
+    "description": "A reactive notebook for Python — run reproducible experiments, query with SQL, execute as a script, deploy as an app, and version with git. Stored as pure Python. All in a modern, AI-native editor.",
     "category": "1. Core Frameworks & Libraries",
     "subcategory": "Interactive ML Apps & Notebooks"
   },
@@ -2193,7 +2193,7 @@
   {
     "name": "Archon",
     "url": "https://github.com/coleam00/Archon",
-    "description": "Workflow engine for deterministic AI coding agents. Define development processes as YAML workflows (planning \u2192 implementation \u2192 validation \u2192 review \u2192 PR) with isolated Git worktrees for parallel execution. MIT licensed.",
+    "description": "Workflow engine for deterministic AI coding agents. Define development processes as YAML workflows (planning → implementation → validation → review → PR) with isolated Git worktrees for parallel execution. MIT licensed.",
     "category": "4. Agentic AI & Multi-Agent Systems",
     "subcategory": "Autonomous Coding Agents"
   },
@@ -2256,7 +2256,7 @@
   {
     "name": "Harness",
     "url": "https://github.com/revfactory/harness",
-    "description": "Team-architecture factory for C\u200dlaude Code that designs domain-specific agent teams, defines specialized agents, and generates their skills. Apache 2.0 licensed.",
+    "description": "Team-architecture factory for C‍laude Code that designs domain-specific agent teams, defines specialized agents, and generates their skills. Apache 2.0 licensed.",
     "category": "4. Agentic AI & Multi-Agent Systems",
     "subcategory": "Autonomous Coding Agents"
   },
@@ -2292,13 +2292,6 @@
     "name": "Agents CLI (Google)",
     "url": "https://github.com/google/agents-cli",
     "description": "CLI and skills that turn coding assistants into experts at creating, evaluating, and deploying AI agents on Google Cloud. Apache 2.0 licensed.",
-    "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Autonomous Coding Agents"
-  },
-  {
-    "name": "Claude Code Skills & Plugins",
-    "url": "https://github.com/alirezarezvani/claude-skills",
-    "description": "Modular instruction packages, custom commands, and utility scripts for Claude Code, Gemini CLI, Cursor, and other AI coding agents. MIT licensed.",
     "category": "4. Agentic AI & Multi-Agent Systems",
     "subcategory": "Autonomous Coding Agents"
   },
@@ -3474,7 +3467,7 @@
   {
     "name": "LTX-2 (Lightricks)",
     "url": "https://github.com/Lightricks/LTX-2",
-    "description": "Official Python inference and LoRA trainer package for the LTX-2 audio\u2013video generative model.",
+    "description": "Official Python inference and LoRA trainer package for the LTX-2 audio–video generative model.",
     "category": "6. Generative Media Tools",
     "subcategory": "Video Generation"
   },
@@ -3488,7 +3481,7 @@
   {
     "name": "Helios (PKU-YuanGroup)",
     "url": "https://github.com/PKU-YuanGroup/Helios",
-    "description": "Efficient long-video generation framework with 24GB VRAM support for up to 10,000 frames (5+ minutes) and 1280\u00d7768 resolution. Apache 2.0 licensed.",
+    "description": "Efficient long-video generation framework with 24GB VRAM support for up to 10,000 frames (5+ minutes) and 1280×768 resolution. Apache 2.0 licensed.",
     "category": "6. Generative Media Tools",
     "subcategory": "Video Generation"
   },
@@ -3656,7 +3649,7 @@
   {
     "name": "Unsloth",
     "url": "https://github.com/unslothai/unsloth",
-    "description": "2\u00d7 faster, 70% less memory fine-tuning.",
+    "description": "2× faster, 70% less memory fine-tuning.",
     "category": "7. Training & Fine-tuning Ecosystem",
     "subcategory": "Full Training Frameworks"
   },
@@ -3810,7 +3803,7 @@
   {
     "name": "OneTrainer",
     "url": "https://github.com/Nerogar/OneTrainer",
-    "description": "One-stop solution for all your Diffusion training needs. Supports FLUX, Stable Diffusion 1.5/2.x/3.x/SDXL, W\u00fcrstchen, PixArt, Hunyuan Video and more. Features full fine-tuning, LoRA, embeddings, masked training, automatic backups, and TensorBoard integration. GPL-3.0 licensed.",
+    "description": "One-stop solution for all your Diffusion training needs. Supports FLUX, Stable Diffusion 1.5/2.x/3.x/SDXL, Würstchen, PixArt, Hunyuan Video and more. Features full fine-tuning, LoRA, embeddings, masked training, automatic backups, and TensorBoard integration. GPL-3.0 licensed.",
     "category": "7. Training & Fine-tuning Ecosystem",
     "subcategory": "Full Training Frameworks"
   },
@@ -5812,7 +5805,7 @@
   {
     "name": "AI Workdeck",
     "url": "https://github.com/zeweihan/aiworkdeck",
-    "description": "Open-source AI-native IDE workspace for legal and document-heavy workflows \u2014 \"VS Code for lawyers.\" Self-hosted with MCP agent orchestration, OCR, due-diligence risk flagging, evidence-chain management, WPS WebOffice integration, smart clipboard. Supports air-gapped deployment with Ollama + local storage. AGPL-3.0 licensed.",
+    "description": "Open-source AI-native IDE workspace for legal and document-heavy workflows — \"VS Code for lawyers.\" Self-hosted with MCP agent orchestration, OCR, due-diligence risk flagging, evidence-chain management, WPS WebOffice integration, smart clipboard. Supports air-gapped deployment with Ollama + local storage. AGPL-3.0 licensed.",
     "category": "13. Developer Tools & Integrations",
     "subcategory": "AI-Native IDEs & Development Environments"
   },

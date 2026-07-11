@@ -35,8 +35,8 @@ Default to **Framer Motion** unless the request clearly needs something else.
 ### Step 3: Scaffold the Project
 
 1. Create a directory: `~/animations/[project-name]/`
-2. Run the scaffold script: `bash ~/.claude/skills/animate/scripts/scaffold.sh [project-name] [stack]`
-3. Copy template files from `~/.claude/skills/animate/assets/template-files/` into the project
+2. Run the scaffold script: `bash ~/.marq-ai/skills/animate/scripts/scaffold.sh [project-name] [stack]`
+3. Copy template files from `~/.marq-ai/skills/animate/assets/template-files/` into the project
 
 ### Step 4: Generate Scene Components
 

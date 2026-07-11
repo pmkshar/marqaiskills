@@ -1,10 +1,10 @@
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
-import OpenSourceAIClient from './OpenSourceAIClient';
-import { getStats, getCategories } from '../../lib/opensource-ai';
+import AIDirectoryClient from './AIDirectoryClient';
+import { getStats, getCategories } from '../../lib/ai-directory';
 
-export default async function OpenSourceAIPage() {
+export default async function AIDirectoryPage() {
   const session = await getServerSession(authOptions);
   
   if (!session?.user?.role) {
@@ -15,5 +15,5 @@ export default async function OpenSourceAIPage() {
   const stats = getStats(role);
   const categories = getCategories(role);
   
-  return <OpenSourceAIClient stats={stats} categories={categories} userRole={role} />;
+  return <AIDirectoryClient stats={stats} categories={categories} userRole={role} />;
 }

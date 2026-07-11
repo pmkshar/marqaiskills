@@ -21,7 +21,7 @@ Conduct a structured, evidence-based evaluation of a business's readiness for AI
 2. Score the six dimensions. Rate each from 1 to 5 against the rubric in `references/dimensions.md`. Be honest and conservative, use half-points for nuance, and record the evidence behind every score.
 3. Calculate the overall score. Apply the weighted formula and map it to a readiness level using the table in `references/methodology.md` (Phase 2).
 4. Run the gap analysis. For each dimension below 4.0, document current state, target state, the gap, its impact, and the effort to close it (Phase 3).
-5. Build recommendations. Produce prioritized actions across the five OneWave priority tiers, tailoring for company size and industry (Phase 4 and tailoring section).
+5. Build recommendations. Produce prioritized actions across the five Marq AI priority tiers, tailoring for company size and industry (Phase 4 and tailoring section).
 6. Generate the report. Write `ai-readiness-report.md` following `references/output-template.md`, then highlight the top 3 immediate actions.
 
 ## The Six Dimensions

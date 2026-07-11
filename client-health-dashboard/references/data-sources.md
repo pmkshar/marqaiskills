@@ -6,17 +6,17 @@ Gather data from every available source. Handle failures gracefully: log what wa
 
 Pull all active client/company records from available CRM systems.
 
-OneWave CRM (if available):
-- `mcp__onewave-crm__list_companies` -- Get all company records
-- `mcp__onewave-crm__get_company` -- Get detailed company info for each
-- `mcp__onewave-crm__list_deals` -- Get all active deals
-- `mcp__onewave-crm__get_deal` -- Get deal details (stage, value, close date)
-- `mcp__onewave-crm__get_dashboard` -- Get dashboard overview metrics
-- `mcp__onewave-crm__get_mrr_breakdown` -- Get MRR data per account
-- `mcp__onewave-crm__get_pipeline_board` -- Get pipeline stage data
-- `mcp__onewave-crm__list_contacts` -- Get all contacts
-- `mcp__onewave-crm__get_timeline` -- Get activity timeline per account
-- `mcp__onewave-crm__list_tasks` -- Get open tasks per account
+Marq AI CRM (if available):
+- `mcp__marq-ai-crm__list_companies` -- Get all company records
+- `mcp__marq-ai-crm__get_company` -- Get detailed company info for each
+- `mcp__marq-ai-crm__list_deals` -- Get all active deals
+- `mcp__marq-ai-crm__get_deal` -- Get deal details (stage, value, close date)
+- `mcp__marq-ai-crm__get_dashboard` -- Get dashboard overview metrics
+- `mcp__marq-ai-crm__get_mrr_breakdown` -- Get MRR data per account
+- `mcp__marq-ai-crm__get_pipeline_board` -- Get pipeline stage data
+- `mcp__marq-ai-crm__list_contacts` -- Get all contacts
+- `mcp__marq-ai-crm__get_timeline` -- Get activity timeline per account
+- `mcp__marq-ai-crm__list_tasks` -- Get open tasks per account
 
 HubSpot CRM (if available):
 - `mcp__claude_ai_HubSpot__search_crm_objects` -- Search companies, deals, tickets
@@ -46,7 +46,7 @@ Extract per client: login frequency (DAU/WAU/MAU); feature adoption rate; usage 
 
 ## 4. Billing and Financial Data
 
-- CRM deal values and MRR data from `mcp__onewave-crm__get_mrr_breakdown`
+- CRM deal values and MRR data from `mcp__marq-ai-crm__get_mrr_breakdown`
 - HubSpot deal records with amount fields
 - Glob for billing exports: `**/*billing*`, `**/*invoice*`, `**/*revenue*`, `**/*arr*`, `**/*mrr*`
 - Check for payment status information
@@ -55,7 +55,7 @@ Extract per client: current ARR/MRR; payment status (current/overdue/at-risk); r
 
 ## 5. Communication and Engagement Logs
 
-- `mcp__onewave-crm__get_timeline` -- Activity timeline per account
+- `mcp__marq-ai-crm__get_timeline` -- Activity timeline per account
 - `mcp__claude_ai_Gmail__gmail_search_messages` -- Recent email threads with each client
 - `mcp__claude_ai_Slack__slack_search_public_and_private` -- Client mentions in Slack
 - CRM activity logs (calls, meetings, emails logged)
