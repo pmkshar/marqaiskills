@@ -48,6 +48,10 @@ export default function Navbar() {
             Agents
           </Link>
           
+          <Link href="/opensource-ai" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textDecoration: 'none' }}>
+            Open Source AI
+          </Link>
+          
           {(role === 'admin' || role === 'manager') && (
             <Link href="/admin" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textDecoration: 'none' }}>
               Admin

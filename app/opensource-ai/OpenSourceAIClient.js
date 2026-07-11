@@ -1,0 +1,428 @@
+'use client';
+
+import { useState, useMemo, useEffect, useCallback } from 'react';
+
+const CATEGORY_COLORS = {
+  '1. Core Frameworks & Libraries': '#6366f1',
+  '2. Model Codebases & Model Families': '#8b5cf6',
+  '3. Inference Engines & Serving': '#f59e0b',
+  '4. Agentic AI & Multi-Agent Systems': '#ef4444',
+  '5. Retrieval-Augmented Generation (RAG) & Knowledge': '#14b8a6',
+  '6. Generative Media Tools': '#ec4899',
+  '7. Training & Fine-tuning Ecosystem': '#f97316',
+  '8. MLOps / LLMOps & Production': '#64748b',
+  '9. Evaluation, Benchmarks & Datasets': '#3b82f6',
+  '10. AI Safety, Alignment & Interpretability': '#dc2626',
+  '11. Specialized Domains': '#059669',
+  '12. User Interfaces & Self-hosted Platforms': '#7c3aed',
+  '13. Developer Tools & Integrations': '#0284c7',
+  '14. Resources & Learning': '#a21caf',
+};
+
+function ProjectCard({ project, color, onClick }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      onClick={() => onClick(project)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: hovered ? 'var(--bg-card-hover)' : 'var(--bg-card)',
+        border: `1px solid ${hovered ? color + '40' : 'var(--border)'}`,
+        borderRadius: 10,
+        padding: '14px 18px',
+        cursor: 'pointer',
+        transition: 'all 0.2s ease',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: color }} />
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8 }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{
+            fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)',
+            whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+          }}>
+            {project.name}
+          </div>
+          <div style={{
+            fontSize: '0.7rem', color, fontWeight: 500,
+            background: color + '12', padding: '2px 6px', borderRadius: 3,
+            display: 'inline-block', marginTop: 4,
+          }}>
+            {project.subcategory}
+          </div>
+        </div>
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={e => e.stopPropagation()}
+          style={{ color: 'var(--text-muted)', fontSize: '0.8rem', flexShrink: 0, textDecoration: 'none' }}
+          title="Open on GitHub"
+        >
+          ↗
+        </a>
+      </div>
+      <p style={{
+        fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: 1.45,
+        marginTop: 8, display: '-webkit-box', WebkitLineClamp: 2,
+        WebkitBoxOrient: 'vertical', overflow: 'hidden',
+      }}>
+        {project.description}
+      </p>
+    </div>
+  );
+}
+
+function ProjectModal({ project, onClose }) {
+  const color = CATEGORY_COLORS[project.category] || '#6366f1';
+  if (!project) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: 720 }}>
+        <button className="modal-close" onClick={onClose}>✕ Close</button>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: `linear-gradient(90deg, ${color}, ${color}88)` }} />
+        
+        <div style={{ marginBottom: 16 }}>
+          <h2 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 6 }}>
+            {project.name}
+          </h2>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '0.75rem', color, fontWeight: 600, background: color + '15', padding: '3px 8px', borderRadius: 4 }}>
+              {project.subcategory}
+            </span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              {project.category}
+            </span>
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 20 }}>
+          <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Description</h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>{project.description}</p>
+        </div>
+
+        <div style={{ marginBottom: 20 }}>
+          <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Repository</h3>
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+              fontSize: '0.85rem', color: 'var(--accent-light)',
+              background: 'rgba(99,102,241,0.08)', padding: '8px 14px',
+              borderRadius: 8, textDecoration: 'none',
+              border: '1px solid rgba(99,102,241,0.2)',
+            }}
+          >
+            🔗 {project.url}
+          </a>
+        </div>
+
+        <div>
+          <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Category Info</h3>
+          <div style={{ background: 'var(--bg-primary)', borderRadius: 8, border: '1px solid var(--border)', padding: 12 }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Category</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-primary)' }}>{project.category}</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Subcategory</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color }}>{project.subcategory}</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Source</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-primary)' }}>awesome-opensource-ai</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function OpenSourceAIClient({ stats, categories, userRole }) {
+  const [search, setSearch] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  const LIMIT = 50;
+
+  const fetchProjects = useCallback(async (query, category, pageNum) => {
+    setLoading(true);
+    try {
+      const params = new URLSearchParams({
+        q: query || '',
+        category: category || 'all',
+        role: userRole || 'viewer',
+        page: String(pageNum),
+        limit: String(LIMIT),
+      });
+      const res = await fetch(`/api/opensource-ai/search?${params}`);
+      const data = await res.json();
+      if (data.success) {
+        setProjects(data.results || []);
+        setTotalResults(data.total || 0);
+        setTotalPages(data.totalPages || 1);
+      }
+    } catch (err) {
+      console.error('Fetch error:', err);
+    } finally {
+      setLoading(false);
+    }
+  }, [userRole]);
+
+  useEffect(() => {
+    fetchProjects(search, selectedCategory, page);
+  }, [search, selectedCategory, page, fetchProjects]);
+
+  const handleCategoryClick = (catKey) => {
+    setSelectedCategory(selectedCategory === catKey ? 'all' : catKey);
+    setPage(1);
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    setPage(1);
+  };
+
+  // Group projects by subcategory for display
+  const groupedProjects = useMemo(() => {
+    const grouped = {};
+    for (const p of projects) {
+      if (!grouped[p.subcategory]) grouped[p.subcategory] = [];
+      grouped[p.subcategory].push(p);
+    }
+    return grouped;
+  }, [projects]);
+
+  return (
+    <div style={{ maxWidth: 1400, margin: '0 auto', padding: '32px 24px' }}>
+      {/* Header */}
+      <div style={{ marginBottom: 28 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
+          <h1 style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+            🌐 Open Source AI Directory
+          </h1>
+          <span style={{
+            fontSize: '0.7rem', fontWeight: 700, color: '#6366f1',
+            background: 'rgba(99,102,241,0.1)', padding: '4px 10px', borderRadius: 6,
+          }}>
+            932 PROJECTS
+          </span>
+        </div>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+          Curated list of the best truly open-source AI projects, models, tools, and infrastructure. Sourced from <a href="https://github.com/alvinreal/awesome-opensource-ai" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-light)' }}>awesome-opensource-ai</a>. Browse by category or search to find the right tool for your project.
+        </p>
+      </div>
+
+      {/* Stats Bar */}
+      <div style={{
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+        gap: 12, marginBottom: 24,
+      }}>
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 800, background: 'var(--gradient-1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            {stats.totalProjects}
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Projects</div>
+        </div>
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 800, background: 'var(--gradient-1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            {stats.totalCategories}
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Categories</div>
+        </div>
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 800, background: 'var(--gradient-1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            {stats.totalSubcategories}
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Subcategories</div>
+        </div>
+      </div>
+
+      {/* Category Filter */}
+      <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap', alignItems: 'center' }}>
+        {Object.entries(categories).map(([catKey, meta]) => (
+          <button
+            key={catKey}
+            onClick={() => handleCategoryClick(catKey)}
+            style={{
+              padding: '8px 14px', borderRadius: 8, cursor: 'pointer',
+              background: selectedCategory === catKey ? meta.color + '15' : 'var(--bg-card)',
+              border: `1px solid ${selectedCategory === catKey ? meta.color + '40' : 'var(--border)'}`,
+              color: selectedCategory === catKey ? meta.color : 'var(--text-primary)',
+              fontSize: '0.78rem', fontWeight: selectedCategory === catKey ? 600 : 400,
+              transition: 'all 0.15s',
+              display: 'flex', alignItems: 'center', gap: 6,
+            }}
+          >
+            <span>{meta.icon}</span>
+            <span>{meta.shortName}</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginLeft: 2 }}>({meta.count})</span>
+          </button>
+        ))}
+        <button
+          onClick={() => { setSelectedCategory('all'); setPage(1); }}
+          style={{
+            padding: '8px 14px', borderRadius: 8, cursor: 'pointer',
+            background: selectedCategory === 'all' ? 'rgba(99,102,241,0.15)' : 'var(--bg-card)',
+            border: `1px solid ${selectedCategory === 'all' ? 'rgba(99,102,241,0.4)' : 'var(--border)'}`,
+            color: selectedCategory === 'all' ? 'var(--accent-light)' : 'var(--text-primary)',
+            fontSize: '0.78rem', fontWeight: selectedCategory === 'all' ? 600 : 400,
+          }}
+        >
+          All ({stats.totalProjects})
+        </button>
+      </div>
+
+      {/* Search */}
+      <div style={{ marginBottom: 24 }}>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search 932 open source AI projects by name, description, or category..."
+          value={search}
+          onChange={handleSearch}
+          style={{ width: '100%', maxWidth: 600, paddingLeft: 16 }}
+        />
+      </div>
+
+      {/* Results info */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+          {loading ? 'Loading...' : `${totalResults} project${totalResults !== 1 ? 's' : ''} found`}
+          {selectedCategory !== 'all' && ` in ${selectedCategory}`}
+          {search && ` matching "${search}"`}
+        </span>
+        {totalPages > 1 && (
+          <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+            <button
+              onClick={() => setPage(p => Math.max(1, p - 1))}
+              disabled={page === 1}
+              style={{
+                padding: '4px 10px', fontSize: '0.8rem', cursor: page === 1 ? 'not-allowed' : 'pointer',
+                background: 'var(--bg-card)', border: '1px solid var(--border)',
+                borderRadius: 6, color: page === 1 ? 'var(--text-muted)' : 'var(--text-primary)',
+              }}
+            >
+              ← Prev
+            </button>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              Page {page} of {totalPages}
+            </span>
+            <button
+              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              disabled={page === totalPages}
+              style={{
+                padding: '4px 10px', fontSize: '0.8rem', cursor: page === totalPages ? 'not-allowed' : 'pointer',
+                background: 'var(--bg-card)', border: '1px solid var(--border)',
+                borderRadius: 6, color: page === totalPages ? 'var(--text-muted)' : 'var(--text-primary)',
+              }}
+            >
+              Next →
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Projects Grid by Subcategory */}
+      {loading && (
+        <div style={{ textAlign: 'center', padding: 40, color: 'var(--text-muted)' }}>
+          <div style={{ fontSize: '1.5rem', marginBottom: 8 }}>⏳</div>
+          Loading projects...
+        </div>
+      )}
+
+      {!loading && Object.entries(groupedProjects).map(([subcat, subProjects]) => {
+        const firstProject = subProjects[0];
+        const color = CATEGORY_COLORS[firstProject?.category] || '#6366f1';
+        return (
+          <div key={subcat} style={{ marginBottom: 32 }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 8,
+              marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid var(--border)',
+            }}>
+              <span style={{ fontSize: '1.1rem' }}>▸</span>
+              <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)' }}>{subcat}</span>
+              <span style={{ fontSize: '0.72rem', color, background: color + '12', padding: '2px 8px', borderRadius: 4 }}>
+                {subProjects.length}
+              </span>
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+              gap: 10,
+            }}>
+              {subProjects.map((project, i) => (
+                <ProjectCard
+                  key={`${project.name}-${i}`}
+                  project={project}
+                  color={color}
+                  onClick={setSelectedProject}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      {!loading && projects.length === 0 && (
+        <div style={{ textAlign: 'center', padding: 48, color: 'var(--text-muted)' }}>
+          <div style={{ fontSize: '2rem', marginBottom: 16 }}>🔍</div>
+          <div>No projects found</div>
+          <div style={{ fontSize: '0.85rem', marginTop: 8 }}>Try a different search or category</div>
+        </div>
+      )}
+
+      {/* Pagination at bottom */}
+      {!loading && totalPages > 1 && (
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 32, paddingTop: 20, borderTop: '1px solid var(--border)' }}>
+          <button
+            onClick={() => setPage(p => Math.max(1, p - 1))}
+            disabled={page === 1}
+            style={{
+              padding: '8px 16px', fontSize: '0.85rem', cursor: page === 1 ? 'not-allowed' : 'pointer',
+              background: 'var(--bg-card)', border: '1px solid var(--border)',
+              borderRadius: 8, color: page === 1 ? 'var(--text-muted)' : 'var(--text-primary)',
+            }}
+          >
+            ← Previous
+          </button>
+          <span style={{ padding: '8px 16px', fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center' }}>
+            Page {page} of {totalPages}
+          </span>
+          <button
+            onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+            disabled={page === totalPages}
+            style={{
+              padding: '8px 16px', fontSize: '0.85rem', cursor: page === totalPages ? 'not-allowed' : 'pointer',
+              background: 'var(--bg-card)', border: '1px solid var(--border)',
+              borderRadius: 8, color: page === totalPages ? 'var(--text-muted)' : 'var(--text-primary)',
+            }}
+          >
+            Next →
+          </button>
+        </div>
+      )}
+
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
+    </div>
+  );
+}
