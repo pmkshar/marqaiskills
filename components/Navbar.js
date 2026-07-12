@@ -63,25 +63,28 @@ export default function Navbar() {
       )}
       
       {status === 'authenticated' && session?.user && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'nowrap', overflowX: 'auto', maxWidth: 'calc(100vw - 280px)' }}>
-          <NavLink href="/dashboard" active={pathname === '/dashboard'}>📊 Dashboard</NavLink>
-          <NavLink href="/skills" active={pathname === '/skills'}>🧠 Skills</NavLink>
-          <NavLink href="/agents" active={pathname === '/agents'}>🤖 Agents</NavLink>
-          <NavLink href="/ai-directory" active={pathname === '/ai-directory'}>🌐 AI Directory</NavLink>
-          <NavLink href="/ideas" active={pathname === '/ideas'}>💡 Ideas Lab</NavLink>
+        <>
+          {/* Desktop nav - visible on larger screens */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0 }}>
+            <NavLink href="/dashboard" active={pathname === '/dashboard'}>📊 Dashboard</NavLink>
+            <NavLink href="/skills" active={pathname === '/skills'}>🧠 Skills</NavLink>
+            <NavLink href="/agents" active={pathname === '/agents'}>🤖 Agents</NavLink>
+            <NavLink href="/ai-directory" active={pathname === '/ai-directory'}>🌐 AI Dir</NavLink>
+            <NavLink href="/ideas" active={pathname === '/ideas'}>💡 Ideas Lab</NavLink>
+            {(role === 'admin' || role === 'manager') && (
+              <NavLink href="/admin" active={pathname === '/admin'}>⚙️ Admin</NavLink>
+            )}
+          </div>
 
-          {(role === 'admin' || role === 'manager') && (
-            <NavLink href="/admin" active={pathname === '/admin'}>⚙️ Admin</NavLink>
-          )}
-          
-          <div style={{ width: 1, height: 24, background: 'var(--border)', margin: '0 8px' }} />
+          <div style={{ width: 1, height: 24, background: 'var(--border)', margin: '0 6px', flexShrink: 0 }} />
 
           {/* Theme Switcher */}
           <ThemeSwitcher />
-          
-          <div style={{ width: 1, height: 24, background: 'var(--border)', margin: '0 8px' }} />
 
-          <div style={{ position: 'relative' }}>
+          <div style={{ width: 1, height: 24, background: 'var(--border)', margin: '0 6px', flexShrink: 0 }} />
+
+          {/* User Menu */}
+          <div style={{ position: 'relative', flexShrink: 0 }}>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               style={{
@@ -111,8 +114,9 @@ export default function Navbar() {
               <div style={{
                 position: 'absolute', right: 0, top: '100%', marginTop: 8,
                 background: 'var(--bg-card)', border: '1px solid var(--border)',
-                borderRadius: 12, minWidth: 200, overflow: 'hidden',
+                borderRadius: 12, minWidth: 220, overflow: 'hidden',
                 boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+                zIndex: 100,
               }}>
                 <div style={{ padding: '14px 16px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 10 }}>
                   <div style={{ width: 36, height: 36, borderRadius: 10, background: badge.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: badge.color }}>
@@ -124,10 +128,17 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div style={{ padding: '6px 8px' }}>
-                  <Link href="/profile" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>👤 Profile</Link>
                   <Link href="/dashboard" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>📊 Dashboard</Link>
+                  <Link href="/skills" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>🧠 Skills</Link>
+                  <Link href="/agents" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>🤖 Agents</Link>
+                  <Link href="/ai-directory" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>🌐 AI Directory</Link>
+                  <Link href="/ideas" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s', fontWeight: 600, background: 'rgba(139,92,246,0.08)', borderLeft: '2px solid #8b5cf6' }}>💡 Ideas Lab</Link>
+                  {(role === 'admin' || role === 'manager') && (
+                    <Link href="/admin" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>⚙️ Admin</Link>
+                  )}
                 </div>
                 <div style={{ borderTop: '1px solid var(--border)', padding: '6px 8px' }}>
+                  <Link href="/profile" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>👤 Profile</Link>
                   <button
                     onClick={() => { setMenuOpen(false); signOut({ callbackUrl: '/auth/login' }); }}
                     style={{
@@ -142,7 +153,7 @@ export default function Navbar() {
               </div>
             )}
           </div>
-        </div>
+        </>
       )}
       
       {status === 'unauthenticated' && (
