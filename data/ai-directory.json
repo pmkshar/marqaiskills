@@ -10357,5 +10357,1654 @@
       "Code",
       "Embeddings"
     ]
+  },
+  {
+    "name": "Azure AI Search",
+    "url": "https://azure.microsoft.com/en-us/products/ai-search",
+    "description": "Microsoft cloud search service with vector, keyword, and hybrid search for AI applications. Integrates with Azure OpenAI for built-in vectorization, semantic ranking, and RAG patterns at enterprise scale.",
+    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "subcategory": "Vector Databases & Search Engines",
+    "capabilities": [
+      "Embeddings",
+      "Tools",
+      "Chat",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Epsilla",
+    "url": "https://github.com/epsilla-cloud/epsilla",
+    "description": "Vector database with knowledge graph support for complex relationship queries. Combines vector search with graph traversal for RAG applications that need both semantic similarity and structured data relationships.",
+    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "subcategory": "Vector Databases & Search Engines",
+    "capabilities": [
+      "Embeddings",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "MyScale",
+    "url": "https://github.com/myscale/myscale",
+    "description": "SQL-compatible vector database built on ClickHouse for analytical and vector search workloads. Perform high-performance vector searches alongside OLAP queries with standard SQL, eliminating the need for separate systems.",
+    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "subcategory": "Vector Databases & Search Engines",
+    "capabilities": [
+      "Embeddings",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "pgvecto.rs",
+    "url": "https://github.com/tensorchord/pgvecto.rs",
+    "description": "Rust-powered vector search extension for PostgreSQL with better performance than pgvector. Implements HNSW and IVFFlat indexes in Rust for fast approximate nearest neighbor search within the PostgreSQL ecosystem.",
+    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "subcategory": "Vector Databases & Search Engines",
+    "capabilities": [
+      "Embeddings",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Pinecone",
+    "url": "https://pinecone.io",
+    "description": "Fully managed vector database service designed for ML applications with real-time indexing and low-latency queries. Offers serverless and pod-based deployment with metadata filtering, sparse-dense hybrid search, and namespace isolation.",
+    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "subcategory": "Vector Databases & Search Engines",
+    "capabilities": [
+      "Embeddings",
+      "Tools",
+      "Chat",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "TopK",
+    "url": "https://topk.io",
+    "description": "AI-native search engine combining vector, keyword, and faceted search in a single query. Designed for product catalogs and content discovery with real-time filtering, geospatial search, and multi-modal embeddings.",
+    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "subcategory": "Vector Databases & Search Engines",
+    "capabilities": [
+      "Embeddings",
+      "Tools",
+      "Vision"
+    ]
+  },
+  {
+    "name": "Turbopuffer",
+    "url": "https://turbopuffer.com",
+    "description": "Serverless vector search engine on object storage with no infrastructure to manage. Cost-effective vector search that scales transparently, ideal for startups and projects that need vector search without operational overhead.",
+    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "subcategory": "Vector Databases & Search Engines",
+    "capabilities": [
+      "Embeddings",
+      "Tools"
+    ]
+  },
+  {
+    "name": "FineTuneDB",
+    "url": "https://finetunedb.com",
+    "description": "Collaborative prompt management and fine-tuning platform for LLM optimization. Version prompts, track performance, and seamlessly transition from prompt engineering to fine-tuning within a single workflow.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Fixie",
+    "url": "https://github.com/fixie-ai/fixie",
+    "description": "Platform for building AI agents that connect to external tools and data sources. Provides a conversational agent framework with built-in tool integration, knowledge retrieval, and multi-turn dialogue management.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Agents",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Klu",
+    "url": "https://klu.so",
+    "description": "AI platform for prompt engineering, evaluation, and deployment with collaborative workspace. Design, test, and optimize LLM prompts with A/B testing, version control, and production monitoring in one unified platform.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Knit",
+    "url": "https://knit.run",
+    "description": "Prompt management and collaboration tool for teams working with LLMs. Version control prompts, manage API keys centrally, and standardize prompt workflows across development and production environments.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Orq.ai",
+    "url": "https://orq.ai",
+    "description": "LLMOps platform for prompt management, evaluation, and AI governance with enterprise compliance. Design, test, and deploy LLM features with built-in guardrails, A/B testing, and comprehensive audit trails.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Prompt Mixer",
+    "url": "https://promptmixer.com",
+    "description": "Visual prompt engineering IDE with drag-and-drop workflow builder for LLM pipelines. Create complex prompt chains visually, test against multiple models, and iterate on prompt designs without writing code.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "PromptLayer",
+    "url": "https://promptlayer.com",
+    "description": "Prompt management platform with version control, analytics, and A/B testing for LLM applications. Track prompt performance, compare variants, and maintain a complete history of prompt changes with rollback capability.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "PromptLeo",
+    "url": "https://promptleo.com",
+    "description": "Prompt optimization tool that automatically refines and improves LLM prompts for better outputs. Uses meta-prompting techniques to iterate on prompt design, reducing manual trial-and-error in prompt engineering.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Prompty",
+    "url": "https://github.com/microsoft/prompty",
+    "description": "Microsoft structured prompt format and runtime for building portable, testable LLM applications. Write prompts as .prompty files with frontmatter, test them independently, and integrate into any framework or language.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Prompt Engineering & Structured Outputs",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Code",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Arize AI",
+    "url": "https://arize.com",
+    "description": "ML observability platform for monitoring, troubleshooting, and improving LLM applications in production. Track embeddings, detect drift, trace prompt-response chains, and set up automated guardrails with real-time alerting.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Chat"
+    ]
+  },
+  {
+    "name": "Braintrust",
+    "url": "https://braintrust.dev",
+    "description": "Enterprise evaluation and monitoring platform for LLM applications with automated scoring. Build evaluation pipelines, track experiments, and catch regressions before they reach production with custom eval functions.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Cekura",
+    "url": "https://cekura.ai",
+    "description": "Testing and evaluation platform for AI voice agents with automated quality assurance. Test conversational flows, detect hallucinations, and ensure compliance in voice-based AI systems with comprehensive test coverage.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Voice",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Cloudflare AI Gateway",
+    "url": "https://developers.cloudflare.com/ai-gateway",
+    "description": "Cloudflare AI proxy providing observability, caching, rate limiting, and fallback for any LLM API. Route requests through Cloudflare global network with real-time analytics, cost tracking, and automatic retries.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Comet Opik",
+    "url": "https://github.com/comet-ml/opik",
+    "description": "Open-source LLM evaluation platform for tracing, testing, and monitoring AI applications. Track prompt chains, evaluate outputs with custom metrics, and compare model performance with an integrated experiment tracker.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Datadog LLM Observability",
+    "url": "https://docs.datadoghq.com/llm-observability",
+    "description": "Datadog LLM monitoring solution with distributed tracing, cost tracking, and quality metrics. Trace every LLM call in your stack, identify latency bottlenecks, and set quality guardrails within the Datadog observability platform.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Chat"
+    ]
+  },
+  {
+    "name": "Dunetrace",
+    "url": "https://dunetrace.com",
+    "description": "Runtime reliability and failure detection platform for AI agents in production. Monitor agent workflows, detect anomalies in decision-making, and ensure agents operate within expected behavioral boundaries.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Galileo",
+    "url": "https://rungalileo.io",
+    "description": "LLM evaluation and monitoring platform for enterprise AI with Luna foundation model. Evaluate RAG quality, detect hallucinations, and monitor prompt performance with data-driven metrics and automated testing pipelines.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "GreptimeDB",
+    "url": "https://github.com/GreptimeTeam/greptimedb",
+    "description": "Open-source time-series database optimized for AI and IoT observability workloads. Handle high-cardinality metrics from LLM inference, training jobs, and agent monitoring with SQL compatibility and efficient compression.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Tools"
+    ]
+  },
+  {
+    "name": "Hamming AI",
+    "url": "https://hamming.ai",
+    "description": "Automated testing and monitoring platform for voice AI and chatbot applications. Generate test cases from conversations, detect regressions, and ensure consistent quality across agent deployments with CI/CD integration.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Voice",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "HoneyHive",
+    "url": "https://honeyhive.ai",
+    "description": "AI observability and evaluation platform for building reliable LLM applications. Trace complex agent workflows, evaluate outputs with custom metrics, and detect quality regressions before they impact users.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Humanloop",
+    "url": "https://humanloop.com",
+    "description": "Platform for building, testing, and monitoring LLM features with human feedback integration. Optimize prompts through evaluation, collect user ratings, and iteratively improve model performance with data-driven iteration cycles.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Lakera",
+    "url": "https://lakera.ai",
+    "description": "AI security platform protecting LLM applications from prompt injection, data leakage, and toxic outputs. Real-time guard with continuously updated threat intelligence, scanning every prompt and response for security violations.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Guardrails & Safety Tools",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Chat"
+    ]
+  },
+  {
+    "name": "LangSmith",
+    "url": "https://smith.langchain.com",
+    "description": "LangChain observability and evaluation platform for tracing, testing, and monitoring LLM applications. Debug complex agent workflows, run evaluation datasets, and monitor production performance with detailed trace visualization.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Agents"
+    ]
+  },
+  {
+    "name": "LangWatch",
+    "url": "https://github.com/langwatch/langwatch",
+    "description": "Open-source LLM observability platform with tracing, evaluation, and cost tracking. Monitor RAG pipelines, track agent performance, and optimize LLM spending with a self-hosted alternative to commercial observability tools.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "LLM Guard",
+    "url": "https://github.com/protectai/llm-guard",
+    "description": "Protect AI open-source security toolkit for scanning LLM inputs and outputs. Detect prompt injection, PII leaks, toxic content, and harmful code with configurable scanners that run before and after every LLM call.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Guardrails & Safety Tools",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Log10",
+    "url": "https://log10.io",
+    "description": "LLM observability and accuracy platform for enterprise AI with automatic hallucination detection. Track LLM calls, score output accuracy, and catch factual errors in real-time with custom evaluation criteria and human review workflows.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Lunary",
+    "url": "https://github.com/lunary-ai/lunary",
+    "description": "Open-source LLM observability platform for logging, monitoring, and debugging AI applications. Track prompts, completions, and costs with a clean interface that supports all major LLM providers and deployment scenarios.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Patronus AI",
+    "url": "https://patronus.ai",
+    "description": "AI evaluation platform for testing LLM accuracy, safety, and compliance at enterprise scale. Automated benchmarks detect hallucinations, copyright risks, and policy violations with reproducible evaluation suites.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Safety Evaluation Frameworks",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Rhesis AI",
+    "url": "https://rhesis.ai",
+    "description": "Testing and evaluation platform for AI applications with focus on reliability and compliance. Generate comprehensive test suites, run continuous evaluations, and ensure AI systems meet quality standards before and after deployment.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Monitoring, Evaluation & Observability",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Sentrial",
+    "url": "https://sentrial.com",
+    "description": "AI safety and compliance monitoring platform for production LLM applications. Continuous evaluation of model outputs against safety policies, with automated reporting and audit trails for regulated industries.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Guardrails & Safety Tools",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "TrueFoundry",
+    "url": "https://truefoundry.com",
+    "description": "AI gateway and deployment platform for routing across 250+ LLMs with fallbacks, rate limiting, guardrails, and RBAC. Deploy and manage LLM applications with enterprise security, cost controls, and multi-cloud support.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Vercel AI Gateway",
+    "url": "https://vercel.com/ai-gateway",
+    "description": "Vercel AI proxy for managing, rate-limiting, and observing LLM API calls across providers. Route requests, track costs, set rate limits, and cache responses with seamless integration into Vercel deployment platform.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Weights & Biases",
+    "url": "https://wandb.ai",
+    "description": "ML experiment tracking and model management platform used by 500K+ ML engineers. Track experiments, version datasets, manage models, and collaborate on AI projects with comprehensive visualization and team workflows.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Experiment Tracking & Versioning",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Aiqu",
+    "url": "https://aiqu.fr",
+    "description": "French-hosted inference API providing OpenAI-compatible endpoints with EU data sovereignty. Access leading open-weight models through a simple API with transparent pricing and full GDPR compliance for European deployments.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Airon",
+    "url": "https://airon.ai",
+    "description": "Inference platform for deploying open-weight LLMs with enterprise-grade reliability and compliance. Run models in dedicated environments with guaranteed throughput, data isolation, and regulatory compliance for sensitive applications.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Aki Io",
+    "url": "https://aki.io",
+    "description": "AI inference gateway providing unified access to multiple LLM providers with intelligent routing and cost optimization. Route requests to the most cost-effective model, set fallbacks, and track spending across providers.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Amazon Bedrock",
+    "url": "https://aws.amazon.com/bedrock",
+    "description": "AWS managed service for accessing foundation models from Amazon, Anthropic, Meta, Cohere, and others through a unified API. Fine-tune models, build agents, and deploy RAG solutions with AWS security and compliance infrastructure.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Image",
+      "Embeddings"
+    ]
+  },
+  {
+    "name": "Anthropic Claude",
+    "url": "https://anthropic.com",
+    "description": "Anthropic frontier AI models with strong reasoning, safety, and long-context capabilities. Claude models excel at analysis, coding, and complex multi-step tasks with constitutional AI training for helpful, harmless outputs.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code",
+      "Vision",
+      "Tools",
+      "Agents"
+    ]
+  },
+  {
+    "name": "Anyscale",
+    "url": "https://anyscale.com",
+    "description": "Scalable AI platform built on Ray for training, fine-tuning, and serving LLMs at production scale. End-to-end MLOps with distributed training, autoscaling inference, and cost optimization across cloud providers.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Ark Labs",
+    "url": "https://arklabs.ai",
+    "description": "Inference API provider focused on low-latency LLM serving with edge deployment capabilities. Serve models closer to users for reduced latency, with automatic scaling and failover for production reliability.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Baseten",
+    "url": "https://baseten.co",
+    "description": "Model inference platform for deploying ML models with autoscaling, observability, and GPU optimization. Deploy any model from Hugging Face or custom weights with automatic batching, TRT-LLM acceleration, and zero cold starts.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "Model Packaging & Deployment",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Image"
+    ]
+  },
+  {
+    "name": "Berget AI",
+    "url": "https://berget.ai",
+    "description": "Norwegian AI infrastructure provider offering GPU clusters and inference services in Nordic data centers. Run LLM inference and fine-tuning with EU data residency, low carbon footprint, and competitive pricing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Cerebrium",
+    "url": "https://cerebrium.ai",
+    "description": "Serverless GPU platform for deploying AI models with automatic scaling and pay-per-use pricing. Build and deploy LLM applications with zero infrastructure management, from prototyping to production scale.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "Model Packaging & Deployment",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "CheapestInference",
+    "url": "https://cheapestinference.com",
+    "description": "Price comparison engine for LLM inference APIs across all major providers. Find the most cost-effective model for your use case with real-time pricing data, performance benchmarks, and provider feature comparisons.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools"
+    ]
+  },
+  {
+    "name": "Cloudflare Workers AI",
+    "url": "https://developers.cloudflare.com/workers-ai",
+    "description": "Serverless AI inference running on Cloudflare global edge network with low latency worldwide. Access open-source models via REST API with no cold starts, automatic scaling, and pay-per-inference pricing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "Edge / On-device AI",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Image"
+    ]
+  },
+  {
+    "name": "CodingPlanX",
+    "url": "https://codingplanx.com",
+    "description": "AI inference platform optimized for code generation and programming assistance models. Deploy and access code-specialized LLMs with optimized inference for autocomplete, refactoring, and code review workflows.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Code",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Cohere",
+    "url": "https://cohere.com",
+    "description": "Enterprise AI platform offering command models, embeddings, and RAG capabilities for business applications. Build search, summarization, and content generation features with enterprise-grade security, multilingual support, and deployment flexibility.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Embeddings",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "CoreWeave",
+    "url": "https://coreweave.com",
+    "description": "GPU cloud provider specializing in AI/ML workloads with high-performance computing infrastructure. Access NVIDIA GPUs at scale for training and inference with bare-metal performance, Kubernetes-native orchestration, and competitive pricing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Cortecs AI",
+    "url": "https://cortecs.ai",
+    "description": "AI inference platform providing serverless GPU compute for LLM deployment with automatic scaling. Deploy models in seconds with OpenAI-compatible APIs, paying only for compute used during inference requests.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "DeepInfra",
+    "url": "https://deepinfra.com",
+    "description": "Inference API for open-source LLMs with ultra-low pricing and high throughput. Access LLaMA, Mixtral, and other models at a fraction of competitor costs with OpenAI-compatible API, streaming, and batch processing support.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Embeddings"
+    ]
+  },
+  {
+    "name": "Eurouter",
+    "url": "https://eurouter.eu",
+    "description": "EU-hosted LLM API router for compliant AI inference with data residency guarantees. Route requests to models hosted entirely within European data centers, ensuring GDPR compliance and data sovereignty for EU organizations.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Evroc",
+    "url": "https://evroc.com",
+    "description": "European cloud platform for secure AI inference with full data sovereignty and regulatory compliance. Deploy LLMs in EU data centers with enterprise security, access controls, and compliance certifications for sensitive industries.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "fal",
+    "url": "https://fal.ai",
+    "description": "Fast inference platform for generative AI models with sub-second latency and serverless scaling. Run diffusion models, LLMs, and audio models with real-time streaming, automatic batching, and pay-per-use GPU compute.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Image",
+      "Video",
+      "Voice",
+      "Chat",
+      "Tools"
+    ]
+  },
+  {
+    "name": "FastPivot",
+    "url": "https://fastpivot.ai",
+    "description": "AI infrastructure provider for rapid LLM deployment and iteration with optimized inference pipelines. Quick model switching, A/B testing, and performance optimization tools for teams iterating on AI products.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "FerryAPI",
+    "url": "https://ferryapi.com",
+    "description": "Unified LLM API gateway that provides a single endpoint for accessing multiple model providers. Simplified integration with automatic failover, load balancing, and consistent response formats across OpenAI, Anthropic, and other providers.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Fireworks AI",
+    "url": "https://fireworks.ai",
+    "description": "High-speed inference platform for open-source LLMs with optimized serving and fine-tuning capabilities. Deploy models with sub-100ms latency, automatic spec decoding, and LoRA fine-tuning through an OpenAI-compatible API.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Image"
+    ]
+  },
+  {
+    "name": "General Compute",
+    "url": "https://generalcompute.com",
+    "description": "GPU compute marketplace for AI workloads with flexible pricing and on-demand availability. Access distributed GPU resources for training and inference with transparent pricing and no long-term commitments.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Genesis Cloud",
+    "url": "https://genesiscloud.com",
+    "description": "GPU cloud provider with high-performance computing instances for AI training and inference. Offer NVIDIA A100 and H100 GPUs with competitive pricing, low-latency networking, and European data center options.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "GeoDD",
+    "url": "https://geodd.com",
+    "description": "Geographically distributed AI inference platform for low-latency model serving worldwide. Deploy models in multiple regions simultaneously with automatic routing to the nearest endpoint for optimal user experience.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Google Gemini API",
+    "url": "https://ai.google.dev",
+    "description": "Google multimodal AI API providing access to Gemini models for text, image, video, and audio understanding. Build applications with long-context reasoning, code generation, and grounded responses using state-of-the-art models.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code",
+      "Vision",
+      "Image",
+      "Video",
+      "Voice",
+      "Tools",
+      "Agents"
+    ]
+  },
+  {
+    "name": "Groq",
+    "url": "https://groq.com",
+    "description": "Ultra-fast LLM inference using custom LPU inference chips achieving hundreds of tokens per second. Process requests faster than any GPU-based solution with deterministic latency, making real-time AI applications possible at scale.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Hyperstack",
+    "url": "https://hyperstack.cc",
+    "description": "GPU cloud platform for AI workloads with straightforward pricing and high-performance compute instances. Access NVIDIA GPUs for training and inference with simple deployment tools and transparent per-hour billing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Infercom",
+    "url": "https://infercom.ai",
+    "description": "AI inference communication platform for managing LLM API interactions with built-in observability and cost controls. Track usage, set budgets, and optimize model selection across multiple LLM providers from a single dashboard.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "IONOS AI Model Hub",
+    "url": "https://ionos.ai",
+    "description": "Europe largest hosting provider AI inference service with OpenAI-compatible API for open-weight LLMs. Run models in IONOS EU data centers with full GDPR compliance, transparent pricing, and enterprise support.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "IonRouter",
+    "url": "https://ionrouter.com",
+    "description": "LLM API router for intelligent model selection and load balancing across inference providers. Automatically route requests to the best available model based on cost, latency, and capability requirements with zero-downtime failover.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Lambda",
+    "url": "https://lambdalabs.com",
+    "description": "GPU cloud provider for AI training and inference with on-demand and reserved NVIDIA GPU clusters. Access H100, A100, and consumer GPUs for LLM workloads with simple CLI deployment and competitive pricing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Chat"
+    ]
+  },
+  {
+    "name": "Lepton AI",
+    "url": "https://lepton.ai",
+    "description": "AI cloud platform for building and deploying AI applications with optimized inference and autoscaling. Deploy models in minutes with Python SDK, automatic batching, and production-ready serving with built-in monitoring.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Image"
+    ]
+  },
+  {
+    "name": "LiberAI",
+    "url": "https://libertai.io",
+    "description": "Decentralized AI inference network running models on distributed nodes for censorship resistance and privacy. Access LLMs through a privacy-preserving network with no single point of control or failure.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "LLMbase",
+    "url": "https://llmbase.com",
+    "description": "Managed LLM infrastructure platform for deploying and scaling language models with zero DevOps. Upload models, configure serving parameters, and get production-ready API endpoints with automatic scaling and monitoring.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "Model Packaging & Deployment",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "LLMWise",
+    "url": "https://llmwise.com",
+    "description": "LLM deployment and management platform with intelligent model selection and cost optimization tools. Compare models side-by-side, track performance metrics, and automatically route to the best model for each use case.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Lyceum",
+    "url": "https://lyceum.ai",
+    "description": "EU-hosted inference cloud for open-source models with OpenAI-compatible API and full data residency. Deploy LLMs in European data centers with GDPR compliance, competitive pricing, and no data leaving EU borders.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "MIAPI",
+    "url": "https://miapi.io",
+    "description": "Unified LLM API gateway providing single-endpoint access to multiple model providers with simplified integration. Manage API keys, track usage, and control costs across OpenAI, Anthropic, Google, and other LLM services.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Modal",
+    "url": "https://modal.com",
+    "description": "Serverless cloud platform for running AI workloads with autoscaling GPU compute and pay-per-use pricing. Write Python code that scales from zero to thousands of GPU containers in seconds, perfect for training, inference, and batch processing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Monster API",
+    "url": "https://monsterapi.ai",
+    "description": "Distributed GPU network for affordable AI inference with decentralized compute resources. Access LLMs and image models at lower costs through a network of GPU providers, with OpenAI-compatible API and serverless scaling.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Image"
+    ]
+  },
+  {
+    "name": "Novita AI",
+    "url": "https://novita.ai",
+    "description": "GPU cloud and AI inference platform offering affordable model serving with global availability. Deploy LLMs and image models with competitive pricing, fast inference, and simple API integration for production workloads.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Image"
+    ]
+  },
+  {
+    "name": "Nscale",
+    "url": "https://nscale.com",
+    "description": "GPU cloud platform purpose-built for AI with high-performance compute for training and inference. Access NVIDIA H100 clusters with low-latency networking, optimized for large-scale LLM training and deployment workloads.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Chat"
+    ]
+  },
+  {
+    "name": "OctoAI",
+    "url": "https://octoai.com",
+    "description": "Efficient inference platform for open-source models with custom-optimized containers and autoscaling. Deploy models with optimized compilation, automatic batching, and pay-per-token pricing through a simple API.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Image"
+    ]
+  },
+  {
+    "name": "OpenRouter",
+    "url": "https://openrouter.ai",
+    "description": "Unified API for 300+ LLMs from OpenAI, Anthropic, Google, Meta, and open-source providers with consistent routing. Access any model through a single endpoint with automatic fallbacks, price optimization, and streaming support.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code",
+      "Tools",
+      "Image"
+    ]
+  },
+  {
+    "name": "Opper",
+    "url": "https://opper.ai",
+    "description": "EU-hosted AI gateway serving 300+ models through one OpenAI-compatible API with full GDPR compliance. Route requests intelligently, manage costs, and ensure data residency within European data centers.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Our Token",
+    "url": "https://ourtoken.ai",
+    "description": "Token management and cost optimization platform for LLM API usage across multiple providers. Track spending, set budgets, and optimize token usage with real-time monitoring and alerts for cost anomalies.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools"
+    ]
+  },
+  {
+    "name": "OVHcloud AI",
+    "url": "https://ovhcloud.com/ai",
+    "description": "European cloud provider AI platform offering inference, training, and deployment services in EU data centers. Run AI workloads with full data sovereignty, GDPR compliance, and competitive European pricing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Packet AI",
+    "url": "https://packetai.com",
+    "description": "AI inference optimization platform for reducing latency and cost in production LLM deployments. Optimize model serving with intelligent caching, request batching, and adaptive routing for improved throughput.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Prem AI",
+    "url": "https://premai.io",
+    "description": "Platform for fine-tuning and deploying LLMs on your own infrastructure with full data sovereignty. Self-hosted AI with enterprise controls, model customization, and deployment flexibility across cloud, on-premise, and edge environments.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Embeddings"
+    ]
+  },
+  {
+    "name": "Requesty",
+    "url": "https://requesty.ai",
+    "description": "LLM API router and gateway with intelligent model selection, fallbacks, and cost management. Route requests to the optimal model based on quality, cost, and latency with comprehensive analytics and provider-agnostic integration.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "RunPod",
+    "url": "https://runpod.io",
+    "description": "GPU cloud marketplace for AI development with on-demand and community cloud instances. Deploy LLMs with one-click templates, access Jupyter notebooks, and run serverless GPU workloads with simple SDK integration.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Image"
+    ]
+  },
+  {
+    "name": "SambaNova",
+    "url": "https://sambanova.ai",
+    "description": "Enterprise AI platform with custom Reconfigurable Dataflow Architecture chips for ultra-fast inference and training. Run large language models at unprecedented throughput with specialized hardware designed from the ground up for AI.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Scaleway",
+    "url": "https://scaleway.com",
+    "description": "European cloud provider GPU instances for AI training and inference in Paris data centers. Access NVIDIA GPUs with predictable European pricing, data residency, and integration with Scaleway object storage and networking.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "SiliconFlow",
+    "url": "https://siliconflow.com",
+    "description": "AI inference platform providing high-performance serving for open-source models with competitive pricing. Access leading open-weight LLMs and image models through a unified API with automatic optimization and scaling.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Image"
+    ]
+  },
+  {
+    "name": "Synexa",
+    "url": "https://synexa.ai",
+    "description": "AI inference platform optimized for running open-source models with simple API access and auto-scaling. Deploy models with minimal configuration, pay only for compute used, and scale automatically with demand.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Taiga Cloud",
+    "url": "https://taiga.cloud",
+    "description": "GPU cloud provider for AI workloads with sustainable computing in Nordic data centers. Run training and inference on renewable-energy-powered infrastructure with low carbon emissions and competitive European pricing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Tensorix",
+    "url": "https://tensorix.ai",
+    "description": "AI compute platform for high-throughput LLM inference with optimized tensor operations and GPU utilization. Maximize hardware efficiency with custom kernels, intelligent batching, and memory optimization for production workloads.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Theta EdgeCloud",
+    "url": "https://thetatoken.org",
+    "description": "Decentralized GPU computing network leveraging edge nodes for AI inference and rendering. Access distributed GPU resources at lower cost than centralized clouds, with peer-to-peer compute sharing and blockchain incentives.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "Edge / On-device AI",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Together AI",
+    "url": "https://together.ai",
+    "description": "Cloud platform for running open-source LLMs with optimized inference, serverless endpoints, and fine-tuning. Access 100+ models with fast serving, dedicated instances, and end-to-end AI infrastructure from training to production.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Image"
+    ]
+  },
+  {
+    "name": "TokensMind",
+    "url": "https://tokensmind.com",
+    "description": "Unified OpenAI-compatible API gateway to 100+ models across providers with centralized billing and monitoring. Simplify multi-provider LLM management with one API key, consistent response formats, and usage analytics.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Tokenware",
+    "url": "https://tokenware.ai",
+    "description": "LLM deployment and serving infrastructure with optimized token processing for cost-effective inference. Reduce per-token costs with intelligent caching, model quantization, and efficient serving pipelines for production workloads.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Vast.ai",
+    "url": "https://vast.ai",
+    "description": "GPU marketplace connecting AI practitioners with affordable compute from individual GPU owners worldwide. Rent GPUs at a fraction of cloud prices with a peer-to-peer marketplace, simple CLI, and container-based deployment.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Verda",
+    "url": "https://verda.ai",
+    "description": "AI infrastructure platform for deploying and managing LLM workloads with simplified operations. Provision GPU resources, deploy models, and monitor performance through a unified control plane designed for AI teams.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "vMetal",
+    "url": "https://vmetal.io",
+    "description": "Bare-metal GPU cloud for AI workloads with direct hardware access and maximum performance. No virtualization overhead means full GPU performance for training and inference with dedicated servers and predictable pricing.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Voyage AI",
+    "url": "https://voyageai.com",
+    "description": "Embedding model provider specializing in high-quality retrieval embeddings optimized for RAG applications. State-of-the-art embedding models that outperform competitors on retrieval benchmarks with context-aware and code-specialized variants.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "Embedding Models",
+    "capabilities": [
+      "Embeddings",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "WAYSCloud",
+    "url": "https://wayscloud.no",
+    "description": "Norwegian cloud platform with an OpenAI-compatible LLM API running open-weight models in Oslo data centers. EU-hosted inference with full GDPR compliance, transparent pricing, and Nordic data residency guarantees.",
+    "category": "3. Inference Engines & Serving",
+    "subcategory": "High-performance Serving & API Servers",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Llama Cpp",
+    "url": "https://infrabase.ai/frameworks-stacks/llama-cpp",
+    "description": "AI infrastructure tool listed in the Frameworks Stacks category on Infrabase.ai.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "LLM Application Frameworks",
+    "capabilities": [
+      "Chat",
+      "Agents",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Lamini",
+    "url": "https://lamini.ai",
+    "description": "Enterprise LLM fine-tuning platform for building custom models from open-source foundations with data-driven optimization. Tuning with automatic hyperparameter selection, RLHF integration, and production-ready deployment in minutes.",
+    "category": "7. Training & Fine-tuning Ecosystem",
+    "subcategory": "LoRA / PEFT Tools",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "TRL",
+    "url": "https://github.com/huggingface/trl",
+    "description": "Hugging Face library for training language models with RLHF, SFT, DPO, and KTO algorithms. Production-grade training pipeline with PPO, DPO, and rejection sampling for aligning models with human preferences and feedback.",
+    "category": "7. Training & Fine-tuning Ecosystem",
+    "subcategory": "Alignment & RLHF Tools",
+    "capabilities": [
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "AssemblyAI",
+    "url": "https://assemblyai.com",
+    "description": "Speech-to-text API with state-of-the-art accuracy, speaker diarization, and content moderation. Transcribe audio with punctuation, chapter detection, sentiment analysis, and PII redaction through a simple REST API.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Deepgram",
+    "url": "https://deepgram.com",
+    "description": "AI speech platform with ultra-fast transcription, text-to-speech, and audio intelligence features. Process audio at 40x real-time speed with word-level timestamps, speaker diarization, and topic detection through an API.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Chat",
+      "Tools"
+    ]
+  },
+  {
+    "name": "ElevenLabs",
+    "url": "https://elevenlabs.io",
+    "description": "Premier AI voice platform with ultra-realistic text-to-speech, voice cloning, and dubbing in 30+ languages. Generate natural-sounding speech with emotion control, create custom voices from samples, and produce audiobooks at scale.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Fish Audio",
+    "url": "https://fish.audio",
+    "description": "Open-source text-to-speech and voice cloning platform with zero-shot and fine-tuned voice synthesis. Clone any voice from a few seconds of audio, support multiple languages, and deploy locally or in the cloud with the FishSpeech model.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Gladia",
+    "url": "https://gladia.io",
+    "description": "Real-time audio transcription and diarization API with sub-second latency and 100+ language support. Transcribe live conversations, meetings, and phone calls with word-level timestamps and speaker identification.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Hume AI",
+    "url": "https://hume.ai",
+    "description": "Emotionally intelligent AI voice interface with real-time vocal inflection analysis and empathetic responses. Build voice agents that detect and respond to human emotions, creating more natural and supportive conversational experiences.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Agent & Voice Infrastructure",
+    "capabilities": [
+      "Voice",
+      "Agents",
+      "Chat",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Lemonfox",
+    "url": "https://lemonfox.ai",
+    "description": "Affordable AI voice and transcription API with Whisper-based speech recognition and natural TTS. Access high-quality speech-to-text and text-to-speech at competitive prices with simple API integration and fast processing.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Lmnt",
+    "url": "https://lmnt.ai",
+    "description": "Real-time text-to-speech API with ultra-low latency streaming for conversational AI applications. Generate natural speech in under 200ms with consistent voice quality, emotional range, and multi-language support for voice agents.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "PlayHT",
+    "url": "https://play.ht",
+    "description": "AI text-to-speech platform with ultra-realistic voice generation and custom voice cloning. Access 800+ natural-sounding voices in 140+ languages with emotional control, real-time streaming, and API-based integration for applications.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Resemble AI",
+    "url": "https://resemble.ai",
+    "description": "AI voice cloning and TTS platform for creating custom synthetic voices with emotion control and real-time streaming. Clone voices from short samples, add emotions, and deploy in games, apps, and call centers with API access.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Rime AI",
+    "url": "https://rime.ai",
+    "description": "Professional text-to-speech API with fine-grained pronunciation control and custom voice creation. Generate speech with precise control over emphasis, pacing, and pronunciation, ideal for branded content and professional narration.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Samtal",
+    "url": "https://samtal.ai",
+    "description": "Swedish-hosted voice AI API with TTS, ASR, voice cloning, and conversational agents with EU data residency. ElevenLabs-compatible API for European organizations requiring GDPR compliance and Nordic data sovereignty.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Agent & Voice Infrastructure",
+    "capabilities": [
+      "Voice",
+      "Chat",
+      "Agents",
+      "Tools"
+    ]
+  },
+  {
+    "name": "SpeechifyAI",
+    "url": "https://speechify.com",
+    "description": "Text-to-speech API with sub-100ms streaming, zero-shot voice cloning, and 30+ locale support. Convert text to natural speech instantly with high-fidelity voices, custom pronunciation, and real-time streaming for applications.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Speechmatics",
+    "url": "https://speechmatics.com",
+    "description": "Enterprise speech recognition with the most accurate global language coverage supporting 50+ languages. Transcribe any audio with custom vocabulary, punctuation, and speaker diarization using self-hosted or cloud deployment.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Speech & Audio Model Codebases",
+    "capabilities": [
+      "Voice",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Suno",
+    "url": "https://suno.com",
+    "description": "AI music generation platform creating full songs with vocals, instruments, and lyrics from text prompts. Generate professional-quality music in any genre with custom lyrics, style control, and API access for creative applications.",
+    "category": "6. Generative Media Tools",
+    "subcategory": "Audio / Music / Voice Generation",
+    "capabilities": [
+      "Voice",
+      "Image",
+      "Tools"
+    ]
+  },
+  {
+    "name": "AG2",
+    "url": "https://github.com/ag2ai/ag2",
+    "description": "Open-source multi-agent framework enabling LLM agents to collaborate on complex tasks with conversable agent patterns. Build multi-agent systems where agents converse, use tools, and solve problems together with flexible orchestration and human-in-the-loop support.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Multi-Agent Orchestration",
+    "capabilities": [
+      "Agents",
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Browserbase",
+    "url": "https://browserbase.com",
+    "description": "Cloud browser infrastructure for AI agents providing scalable headless Chrome instances with stealth mode. Let agents browse the web, interact with pages, and extract data at scale with session management, CAPTCHA handling, and proxy rotation.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Vision"
+    ]
+  },
+  {
+    "name": "ChatBotKit",
+    "url": "https://chatbotkit.com",
+    "description": "Platform for building and deploying AI agents across web, Slack, Discord, WhatsApp, and Telegram. Create conversational agents with visual builder, custom datasets, and multi-channel deployment without writing code.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Chat",
+      "Agents",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Claude Agent SDK",
+    "url": "https://docs.anthropic.com/en/docs/agents",
+    "description": "Anthropic official SDK for building production agents with Claude tool use and agent loop capabilities. Build reliable AI agents with structured tool calling, multi-step reasoning, and the same patterns that power Claude Code.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Single-Agent Frameworks",
+    "capabilities": [
+      "Agents",
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Dust",
+    "url": "https://dust.tt",
+    "description": "Enterprise AI assistant platform for building custom agents connected to company knowledge and tools. Design multi-step agent workflows with visual builder, connect to internal data sources, and deploy AI assistants for team productivity.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Agents",
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "E2B",
+    "url": "https://github.com/e2b-dev/E2B",
+    "description": "Secure sandboxed cloud environments for AI agents to execute code, run commands, and access the internet safely. Provide agents with isolated compute environments for code execution, file operations, and browser automation with zero security risk.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Agent Context, Memory & Knowledge",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Code",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "FalsifyLab",
+    "url": "https://falsifylab.com",
+    "description": "MCP server giving AI agents live financial and on-chain data tools for crypto and DeFi analysis. Equip agents with real-time market data, blockchain queries, and financial analysis tools through the Model Context Protocol.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "LangDock",
+    "url": "https://langdock.com",
+    "description": "Enterprise AI platform for building and managing internal AI assistants with department-specific agents. Create compliant, role-based AI assistants with access controls, audit trails, and integration with internal tools and knowledge bases.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Chat",
+      "Agents",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "PrivateClawd",
+    "url": "https://privateclawd.com",
+    "description": "Private and self-hosted AI assistant platform for teams requiring data confidentiality and on-premise deployment. Run AI assistants behind your firewall with enterprise access controls, conversation isolation, and zero data leakage.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Full Self-hosted AI Platforms",
+    "capabilities": [
+      "Chat",
+      "Agents",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Rasa",
+    "url": "https://github.com/RasaHQ/rasa",
+    "description": "Open-source conversational AI platform for building enterprise chatbots and voice assistants with custom NLU and dialogue management. Train intent classifiers, design conversation flows, and deploy contextual assistants with full control over data and models.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Chat",
+      "Voice",
+      "Agents",
+      "Tools"
+    ]
   }
 ]
