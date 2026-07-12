@@ -136,11 +136,11 @@ export const THEMES = {
     },
   },
   'light-clinical': {
-    name: 'Light Clinical',
+    name: 'Light',
     icon: '☀️',
-    preview: ['#6366f1', '#818cf8', '#f8f9fa'],
+    preview: ['#6366f1', '#818cf8', '#f8f9fc'],
     vars: {
-      '--bg-primary': '#f8f9fc',
+      '--bg-primary': '#f5f6fa',
       '--bg-secondary': '#ffffff',
       '--bg-card': '#ffffff',
       '--bg-card-hover': '#f0f1f5',
@@ -149,16 +149,16 @@ export const THEMES = {
       '--text-muted': '#8888a0',
       '--accent': '#6366f1',
       '--accent-light': '#818cf8',
-      '--border': '#e0e0ec',
+      '--border': '#e2e4ee',
       '--gradient-1': 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%)',
-      '--gradient-2': 'linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%)',
+      '--gradient-2': 'linear-gradient(135deg, #f5f6fa 0%, #ffffff 100%)',
       '--gradient-3': 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%)',
       '--gradient-4': 'linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%)',
-      '--shadow-sm': '0 2px 8px rgba(0,0,0,0.06)',
-      '--shadow-md': '0 4px 16px rgba(0,0,0,0.08)',
-      '--shadow-lg': '0 8px 32px rgba(0,0,0,0.12)',
-      '--shadow-glow': '0 0 20px rgba(99,102,241,0.1)',
-      '--nav-bg': 'rgba(255,255,255,0.9)',
+      '--shadow-sm': '0 1px 3px rgba(0,0,0,0.06)',
+      '--shadow-md': '0 4px 12px rgba(0,0,0,0.08)',
+      '--shadow-lg': '0 8px 24px rgba(0,0,0,0.10)',
+      '--shadow-glow': '0 0 12px rgba(99,102,241,0.08)',
+      '--nav-bg': 'rgba(255,255,255,0.92)',
     },
   },
   'cyber-neon': {
@@ -215,7 +215,7 @@ export const THEMES = {
   },
 };
 
-const DEFAULT_THEME = 'midnight-purple';
+const DEFAULT_THEME = 'light-clinical';
 const STORAGE_KEY = 'marq-ai-theme';
 
 export function ThemeProvider({ children }) {

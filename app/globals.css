@@ -1,23 +1,23 @@
 :root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #12121a;
-  --bg-card: #1a1a2e;
-  --bg-card-hover: #242445;
-  --text-primary: #f0f0f5;
-  --text-secondary: #a0a0b8;
-  --text-muted: #6b6b80;
+  --bg-primary: #f5f6fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f1f5;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a68;
+  --text-muted: #8888a0;
   --accent: #6366f1;
   --accent-light: #818cf8;
-  --border: #2a2a40;
+  --border: #e2e4ee;
   --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
-  --gradient-2: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  --gradient-2: linear-gradient(135deg, #f5f6fa 0%, #ffffff 100%);
   --gradient-3: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%);
   --gradient-4: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
-  --shadow-glow: 0 0 20px rgba(99,102,241,0.15);
-  --nav-bg: rgba(10,10,15,0.9);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.10);
+  --shadow-glow: 0 0 12px rgba(99,102,241,0.08);
+  --nav-bg: rgba(255,255,255,0.92);
 }
 
 * {
