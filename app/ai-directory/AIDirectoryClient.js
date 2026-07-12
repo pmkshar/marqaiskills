@@ -19,8 +19,47 @@ const CATEGORY_COLORS = {
   '14. Resources & Learning': '#a21caf',
 };
 
+// ─── Capability Badge Definitions ───────────────────────────────
+const CAPABILITIES = {
+  Chat:      { icon: '💬', color: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.25)' },
+  Voice:     { icon: '🎙️', color: '#8b5cf6', bg: 'rgba(139,92,246,0.10)', border: 'rgba(139,92,246,0.25)' },
+  Video:     { icon: '🎬', color: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.25)' },
+  Image:     { icon: '🎨', color: '#ec4899', bg: 'rgba(236,72,153,0.10)', border: 'rgba(236,72,153,0.25)' },
+  Vision:    { icon: '👁️', color: '#f59e0b', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.25)' },
+  Code:      { icon: '💻', color: '#10b981', bg: 'rgba(16,185,129,0.10)', border: 'rgba(16,185,129,0.25)' },
+  Reasoning: { icon: '🧠', color: '#6366f1', bg: 'rgba(99,102,241,0.10)', border: 'rgba(99,102,241,0.25)' },
+  Agents:    { icon: '🤖', color: '#f97316', bg: 'rgba(249,115,22,0.10)', border: 'rgba(249,115,22,0.25)' },
+  Tools:     { icon: '🔧', color: '#64748b', bg: 'rgba(100,116,139,0.10)', border: 'rgba(100,116,139,0.25)' },
+  Embeddings:{ icon: '📊', color: '#14b8a6', bg: 'rgba(20,184,166,0.10)', border: 'rgba(20,184,166,0.25)' },
+};
+
+function CapBadge({ cap, small }) {
+  const def = CAPABILITIES[cap];
+  if (!def) return null;
+  return (
+    <span
+      title={cap}
+      style={{
+        display: 'inline-flex', alignItems: 'center', gap: small ? 2 : 4,
+        fontSize: small ? '0.6rem' : '0.68rem',
+        fontWeight: 500, color: def.color,
+        background: def.bg,
+        border: `1px solid ${def.border}`,
+        padding: small ? '1px 5px' : '2px 7px',
+        borderRadius: 5,
+        whiteSpace: 'nowrap',
+        lineHeight: 1.4,
+      }}
+    >
+      <span style={{ fontSize: small ? '0.55rem' : '0.65rem' }}>{def.icon}</span>
+      {cap}
+    </span>
+  );
+}
+
 function ProjectCard({ project, color, onClick }) {
   const [hovered, setHovered] = useState(false);
+  const caps = project.capabilities || [];
   return (
     <div
       onClick={() => onClick(project)}
@@ -72,12 +111,24 @@ function ProjectCard({ project, color, onClick }) {
       }}>
         {project.description}
       </p>
+      {/* Capability Badges */}
+      {caps.length > 0 && (
+        <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginTop: 8 }}>
+          {caps.slice(0, 5).map(cap => <CapBadge key={cap} cap={cap} small />)}
+          {caps.length > 5 && (
+            <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)', padding: '1px 4px', background: 'var(--bg-primary)', borderRadius: 3 }}>
+              +{caps.length - 5}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 }
 
 function ProjectModal({ project, onClose }) {
   const color = CATEGORY_COLORS[project.category] || '#6366f1';
+  const caps = project.capabilities || [];
   if (!project) return null;
 
   return (
@@ -99,6 +150,16 @@ function ProjectModal({ project, onClose }) {
             </span>
           </div>
         </div>
+
+        {/* Capabilities Section in Modal */}
+        {caps.length > 0 && (
+          <div style={{ marginBottom: 20 }}>
+            <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Capabilities</h3>
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+              {caps.map(cap => <CapBadge key={cap} cap={cap} />)}
+            </div>
+          </div>
+        )}
 
         <div style={{ marginBottom: 20 }}>
           <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Description</h3>
@@ -124,7 +185,7 @@ function ProjectModal({ project, onClose }) {
         </div>
 
         <div>
-          <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Category Info</h3>
+          <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Project Details</h3>
           <div style={{ background: 'var(--bg-primary)', borderRadius: 8, border: '1px solid var(--border)', padding: 12 }}>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <tbody>
@@ -135,6 +196,10 @@ function ProjectModal({ project, onClose }) {
                 <tr style={{ borderBottom: '1px solid var(--border)' }}>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Subcategory</td>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color }}>{project.subcategory}</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Capabilities</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-primary)' }}>{caps.join(', ') || 'N/A'}</td>
                 </tr>
                 <tr>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Platform</td>
@@ -152,6 +217,7 @@ function ProjectModal({ project, onClose }) {
 export default function AIDirectoryClient({ stats, categories, userRole }) {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCapability, setSelectedCapability] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -161,12 +227,13 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
 
   const LIMIT = 50;
 
-  const fetchProjects = useCallback(async (query, category, pageNum) => {
+  const fetchProjects = useCallback(async (query, category, capability, pageNum) => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
         q: query || '',
         category: category || 'all',
+        capability: capability || 'all',
         role: userRole || 'viewer',
         page: String(pageNum),
         limit: String(LIMIT),
@@ -186,11 +253,16 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
   }, [userRole]);
 
   useEffect(() => {
-    fetchProjects(search, selectedCategory, page);
-  }, [search, selectedCategory, page, fetchProjects]);
+    fetchProjects(search, selectedCategory, selectedCapability, page);
+  }, [search, selectedCategory, selectedCapability, page, fetchProjects]);
 
   const handleCategoryClick = (catKey) => {
     setSelectedCategory(selectedCategory === catKey ? 'all' : catKey);
+    setPage(1);
+  };
+
+  const handleCapabilityClick = (cap) => {
+    setSelectedCapability(selectedCapability === cap ? 'all' : cap);
     setPage(1);
   };
 
@@ -199,7 +271,12 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
     setPage(1);
   };
 
-  // Group projects by subcategory for display
+  // Count projects per capability from stats
+  const capabilityCounts = useMemo(() => {
+    // We'll derive from the loaded projects batch, but also show totals from stats
+    return stats.capabilityCounts || {};
+  }, [stats]);
+
   const groupedProjects = useMemo(() => {
     const grouped = {};
     for (const p of projects) {
@@ -252,6 +329,52 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
           </div>
           <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Subcategories</div>
         </div>
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 800, background: 'var(--gradient-4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            10
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Modalities</div>
+        </div>
+      </div>
+
+      {/* ─── Capabilities Filter ──────────────────────────── */}
+      <div style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8 }}>
+          Filter by Capability
+        </div>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+          {Object.entries(CAPABILITIES).map(([cap, def]) => (
+            <button
+              key={cap}
+              onClick={() => handleCapabilityClick(cap)}
+              style={{
+                padding: '6px 12px', borderRadius: 8, cursor: 'pointer',
+                background: selectedCapability === cap ? def.bg : 'var(--bg-card)',
+                border: `1px solid ${selectedCapability === cap ? def.border : 'var(--border)'}`,
+                color: selectedCapability === cap ? def.color : 'var(--text-secondary)',
+                fontSize: '0.75rem', fontWeight: selectedCapability === cap ? 600 : 400,
+                transition: 'all 0.15s',
+                display: 'flex', alignItems: 'center', gap: 5,
+              }}
+            >
+              <span style={{ fontSize: '0.7rem' }}>{def.icon}</span>
+              {cap}
+            </button>
+          ))}
+          {selectedCapability !== 'all' && (
+            <button
+              onClick={() => { setSelectedCapability('all'); setPage(1); }}
+              style={{
+                padding: '6px 10px', borderRadius: 8, cursor: 'pointer',
+                background: 'var(--bg-card)', border: '1px solid var(--border)',
+                color: 'var(--text-muted)', fontSize: '0.72rem',
+                display: 'flex', alignItems: 'center', gap: 4,
+              }}
+            >
+              ✕ Clear
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Category Filter */}
@@ -301,11 +424,52 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
         />
       </div>
 
+      {/* Active filters summary */}
+      {(selectedCapability !== 'all' || selectedCategory !== 'all' || search) && (
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Active filters:</span>
+          {selectedCapability !== 'all' && (
+            <span style={{ 
+              display: 'inline-flex', alignItems: 'center', gap: 4,
+              fontSize: '0.72rem', padding: '3px 8px', borderRadius: 6,
+              background: CAPABILITIES[selectedCapability]?.bg, color: CAPABILITIES[selectedCapability]?.color,
+              border: `1px solid ${CAPABILITIES[selectedCapability]?.border}`,
+            }}>
+              {CAPABILITIES[selectedCapability]?.icon} {selectedCapability}
+              <span onClick={() => { setSelectedCapability('all'); setPage(1); }} style={{ cursor: 'pointer', marginLeft: 2, opacity: 0.7 }}>✕</span>
+            </span>
+          )}
+          {selectedCategory !== 'all' && (
+            <span style={{ 
+              display: 'inline-flex', alignItems: 'center', gap: 4,
+              fontSize: '0.72rem', padding: '3px 8px', borderRadius: 6,
+              background: 'rgba(99,102,241,0.08)', color: 'var(--accent)',
+              border: '1px solid rgba(99,102,241,0.2)',
+            }}>
+              {categories[selectedCategory]?.icon} {categories[selectedCategory]?.shortName}
+              <span onClick={() => { setSelectedCategory('all'); setPage(1); }} style={{ cursor: 'pointer', marginLeft: 2, opacity: 0.7 }}>✕</span>
+            </span>
+          )}
+          {search && (
+            <span style={{ 
+              display: 'inline-flex', alignItems: 'center', gap: 4,
+              fontSize: '0.72rem', padding: '3px 8px', borderRadius: 6,
+              background: 'var(--bg-card)', color: 'var(--text-secondary)',
+              border: '1px solid var(--border)',
+            }}>
+              🔍 "{search}"
+              <span onClick={() => { setSearch(''); setPage(1); }} style={{ cursor: 'pointer', marginLeft: 2, opacity: 0.7 }}>✕</span>
+            </span>
+          )}
+        </div>
+      )}
+
       {/* Results info */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           {loading ? 'Loading...' : `${totalResults} project${totalResults !== 1 ? 's' : ''} found`}
-          {selectedCategory !== 'all' && ` in ${selectedCategory}`}
+          {selectedCategory !== 'all' && ` in ${categories[selectedCategory]?.shortName || selectedCategory}`}
+          {selectedCapability !== 'all' && ` with ${selectedCapability}`}
           {search && ` matching "${search}"`}
         </span>
         {totalPages > 1 && (
@@ -384,7 +548,7 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
         <div style={{ textAlign: 'center', padding: 48, color: 'var(--text-muted)' }}>
           <div style={{ fontSize: '2rem', marginBottom: 16 }}>🔍</div>
           <div>No projects found</div>
-          <div style={{ fontSize: '0.85rem', marginTop: 8 }}>Try a different search or category</div>
+          <div style={{ fontSize: '0.85rem', marginTop: 8 }}>Try a different search, category, or capability filter</div>
         </div>
       )}
 
