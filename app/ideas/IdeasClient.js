@@ -6,14 +6,14 @@ import { useSession } from 'next-auth/react';
 const CATEGORY_COLORS = {
   'Frontend & UI': '#3b82f6',
   'Backend & API': '#10b981',
-  'AI & ML Models': '#8b5cf6',
+  'AI & ML Models': '#14b8a6',
   'Data & Storage': '#f59e0b',
   'Infrastructure': '#64748b',
   'Testing & QA': '#ec4899',
   'Deployment & DevOps': '#f97316',
   'Security & Auth': '#ef4444',
   'Integration': '#14b8a6',
-  'Monitoring': '#6366f1',
+  'Monitoring': '#0d9488',
 };
 
 const PHASE_ICONS = {
@@ -27,7 +27,7 @@ const PHASE_ICONS = {
 };
 
 function PhaseCard({ phase, index, isLast }) {
-  const color = CATEGORY_COLORS[phase.category] || '#6366f1';
+  const color = CATEGORY_COLORS[phase.category] || '#0d9488';
   const icon = PHASE_ICONS[(index % 7) + 1] || '📌';
 
   return (
@@ -105,8 +105,8 @@ function PhaseCard({ phase, index, isLast }) {
                 <span key={i} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 4,
                   fontSize: '0.72rem', fontWeight: 500,
-                  background: 'rgba(139,92,246,0.10)', color: '#8b5cf6',
-                  border: '1px solid rgba(139,92,246,0.25)',
+                  background: 'rgba(13,148,136,0.10)', color: '#14b8a6',
+                  border: '1px solid rgba(20,184,166,0.25)',
                   padding: '3px 8px', borderRadius: 6,
                 }}>
                   🤖 {model.name}
@@ -310,8 +310,8 @@ export default function IdeasClient() {
             💡 Ideas Lab
           </h1>
           <span style={{
-            fontSize: '0.7rem', fontWeight: 700, color: '#8b5cf6',
-            background: 'rgba(139,92,246,0.1)', padding: '4px 10px', borderRadius: 6,
+            fontSize: '0.7rem', fontWeight: 700, color: '#14b8a6',
+            background: 'rgba(20,184,166,0.1)', padding: '4px 10px', borderRadius: 6,
           }}>
             AI-POWERED
           </span>
@@ -334,7 +334,7 @@ export default function IdeasClient() {
         borderRadius: 16, padding: '28px 32px', marginBottom: 24,
         position: 'relative', overflow: 'hidden',
       }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #8b5cf6, #3b82f6, #10b981)' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #0d9488, #14b8a6, #10b981)' }} />
 
         <div style={{ marginBottom: 16 }}>
           <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', display: 'block', marginBottom: 8 }}>
@@ -354,7 +354,7 @@ export default function IdeasClient() {
               fontFamily: 'inherit',
               transition: 'border-color 0.2s',
             }}
-            onFocus={e => e.target.style.borderColor = '#8b5cf6'}
+            onFocus={e => e.target.style.borderColor = '#0d9488'}
             onBlur={e => e.target.style.borderColor = 'var(--border)'}
           />
         </div>
@@ -381,7 +381,7 @@ export default function IdeasClient() {
               disabled={!idea.trim() || loading}
               style={{
                 padding: '10px 24px', borderRadius: 10, cursor: 'pointer',
-                background: (!idea.trim() || loading) ? 'var(--bg-primary)' : 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+                background: (!idea.trim() || loading) ? 'var(--bg-primary)' : 'linear-gradient(135deg, #0d9488, #14b8a6)',
                 border: (!idea.trim() || loading) ? '1px solid var(--border)' : 'none',
                 color: (!idea.trim() || loading) ? 'var(--text-muted)' : '#fff',
                 fontSize: '0.88rem', fontWeight: 600,
@@ -419,7 +419,7 @@ export default function IdeasClient() {
                   color: 'var(--text-secondary)', fontSize: '0.78rem', textAlign: 'left',
                   transition: 'all 0.15s', lineHeight: 1.4,
                 }}
-                onMouseEnter={e => { e.target.style.borderColor = '#8b5cf640'; e.target.style.background = 'rgba(139,92,246,0.05)'; }}
+                onMouseEnter={e => { e.target.style.borderColor = '#0d948840'; e.target.style.background = 'rgba(20,184,166,0.05)'; }}
                 onMouseLeave={e => { e.target.style.borderColor = 'var(--border)'; e.target.style.background = 'var(--bg-card)'; }}
               >
                 💡 {ex}
@@ -458,9 +458,9 @@ export default function IdeasClient() {
             {['Understanding requirements', 'Matching AI models', 'Designing architecture', 'Building roadmap'].map((step, i) => (
               <span key={i} style={{
                 fontSize: '0.68rem', padding: '4px 10px', borderRadius: 6,
-                background: i < 2 ? 'rgba(139,92,246,0.1)' : 'var(--bg-primary)',
-                color: i < 2 ? '#8b5cf6' : 'var(--text-muted)',
-                border: `1px solid ${i < 2 ? 'rgba(139,92,246,0.2)' : 'var(--border)'}`,
+                background: i < 2 ? 'rgba(20,184,166,0.1)' : 'var(--bg-primary)',
+                color: i < 2 ? '#14b8a6' : 'var(--text-muted)',
+                border: `1px solid ${i < 2 ? 'rgba(20,184,166,0.2)' : 'var(--border)'}`,
               }}>
                 {i < 2 ? '✓' : '⏳'} {step}
               </span>
@@ -474,8 +474,8 @@ export default function IdeasClient() {
         <div ref={resultRef}>
           {/* Summary */}
           <div style={{
-            background: 'linear-gradient(135deg, rgba(139,92,246,0.08), rgba(59,130,246,0.08))',
-            border: '1px solid rgba(139,92,246,0.2)',
+            background: 'linear-gradient(135deg, rgba(20,184,166,0.08), rgba(59,130,246,0.08))',
+            border: '1px solid rgba(20,184,166,0.2)',
             borderRadius: 16, padding: '24px 28px', marginBottom: 24,
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
@@ -576,7 +576,7 @@ export default function IdeasClient() {
               }}
               style={{
                 padding: '12px 24px', borderRadius: 10, cursor: 'pointer',
-                background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+                background: 'linear-gradient(135deg, #0d9488, #14b8a6)',
                 border: 'none', color: '#fff', fontSize: '0.85rem', fontWeight: 600,
               }}
             >
@@ -613,7 +613,7 @@ export default function IdeasClient() {
                   color: 'var(--text-secondary)', fontSize: '0.78rem', textAlign: 'left',
                   transition: 'all 0.15s',
                 }}
-                onMouseEnter={e => e.target.style.borderColor = '#8b5cf640'}
+                onMouseEnter={e => e.target.style.borderColor = '#0d948840'}
                 onMouseLeave={e => e.target.style.borderColor = 'var(--border)'}
               >
                 <div style={{ fontWeight: 500, marginBottom: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>

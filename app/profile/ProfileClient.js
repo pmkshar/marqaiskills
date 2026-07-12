@@ -12,7 +12,7 @@ const ROLE_COLORS = {
 export default function ProfileClient({ user, roleInfo, accessibleCategories, accessibleSkillsCount, totalSkillsCount, permissions }) {
   const { data: session } = useSession();
   const currentUser = session?.user || user;
-  const roleColor = ROLE_COLORS[currentUser.role] || '#6366f1';
+  const roleColor = ROLE_COLORS[currentUser.role] || '#0d9488';
   
   return (
     <div style={{ maxWidth: 800, margin: '0 auto', padding: '32px 24px' }}>
@@ -60,7 +60,7 @@ export default function ProfileClient({ user, roleInfo, accessibleCategories, ac
           {accessibleCategories.map(cat => (
             <span key={cat} style={{
               fontSize: '0.8rem', color: 'var(--text-secondary)',
-              background: 'rgba(99,102,241,0.1)', padding: '6px 12px', borderRadius: 6,
+              background: 'rgba(13,148,136,0.1)', padding: '6px 12px', borderRadius: 6,
             }}>
               {cat}
             </span>

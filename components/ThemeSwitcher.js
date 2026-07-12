@@ -83,7 +83,7 @@ export default function ThemeSwitcher() {
                     display: 'flex', alignItems: 'center', gap: 10,
                     padding: '10px 12px', borderRadius: 10, cursor: 'pointer',
                     border: isActive ? '1px solid var(--accent)' : '1px solid transparent',
-                    background: isActive ? 'rgba(99,102,241,0.08)' : 'transparent',
+                    background: isActive ? 'rgba(13,148,136,0.08)' : 'transparent',
                     transition: 'all 0.15s',
                     width: '100%', textAlign: 'left',
                   }}

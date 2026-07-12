@@ -154,13 +154,13 @@ export default function HomeClient({ skills, totalSkills, userRole, permissions,
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
             <button
               onClick={() => router.push('/auth/login')}
-              style={{ padding: '14px 32px', background: 'var(--accent)', color: '#fff', border: 'none', borderRadius: 12, fontSize: '1rem', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 16px rgba(99,102,241,0.3)', transition: 'all 0.2s' }}
+              style={{ padding: '14px 32px', background: 'var(--accent)', color: '#fff', border: 'none', borderRadius: 12, fontSize: '1rem', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 16px rgba(13,148,136,0.3)', transition: 'all 0.2s' }}
             >
               Sign In to Access
             </button>
             <button
               onClick={() => router.push('/auth/signup')}
-              style={{ padding: '14px 32px', background: 'transparent', color: 'var(--accent-light)', border: '1px solid rgba(99,102,241,0.4)', borderRadius: 12, fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s' }}
+              style={{ padding: '14px 32px', background: 'transparent', color: 'var(--accent-light)', border: '1px solid rgba(13,148,136,0.4)', borderRadius: 12, fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s' }}
             >
               Create Account
             </button>
@@ -250,7 +250,7 @@ export default function HomeClient({ skills, totalSkills, userRole, permissions,
         </div>
         <div style={{
           position: 'relative', zIndex: 1,
-          background: `linear-gradient(135deg, rgba(99,102,241,0.06) 0%, ${roleInfo.color}08 50%, transparent 100%)`,
+          background: `linear-gradient(135deg, rgba(13,148,136,0.06) 0%, ${roleInfo.color}08 50%, transparent 100%)`,
           borderBottom: '1px solid var(--border)', padding: '24px 32px',
           display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap',
         }}>

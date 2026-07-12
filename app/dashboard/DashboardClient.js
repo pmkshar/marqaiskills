@@ -4,7 +4,7 @@ import { useState, useMemo, useRef, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 
 // ─── Color Palette ──────────────────────────────
-const COLORS = ['#6366f1','#8b5cf6','#ec4899','#ef4444','#f59e0b','#10b981','#14b8a6','#3b82f6','#64748b','#f97316','#a78bfa','#0ea5e9','#84cc16','#e879f9'];
+const COLORS = ['#0d9488','#14b8a6','#ec4899','#ef4444','#f59e0b','#10b981','#2dd4bf','#3b82f6','#64748b','#f97316','#5eead4','#0ea5e9','#84cc16','#e879f9'];
 const ROLE_COLORS = { admin: '#ef4444', manager: '#f59e0b', editor: '#3b82f6', viewer: '#10b981' };
 const ROLE_LABELS = { admin: 'Administrator', manager: 'Manager', editor: 'Editor', viewer: 'Viewer' };
 
@@ -66,7 +66,7 @@ function BarChart({ data, height = 200, maxBars = 12 }) {
   );
 }
 
-function AreaChart({ data, height = 120, color = '#6366f1' }) {
+function AreaChart({ data, height = 120, color = '#0d9488' }) {
   if (!data.length) return null;
   const max = Math.max(...data.map(d => d.value), 1);
   const w = 100;
@@ -87,7 +87,7 @@ function AreaChart({ data, height = 120, color = '#6366f1' }) {
   );
 }
 
-function RadialGauge({ value, max = 100, size = 120, color = '#6366f1', label }) {
+function RadialGauge({ value, max = 100, size = 120, color = '#0d9488', label }) {
   const pct = Math.min(value / max, 1);
   const radius = (size - 12) / 2;
   const cx = size / 2, cy = size / 2;
@@ -262,7 +262,7 @@ export default function DashboardClient({ analytics, userRole }) {
     Object.entries(analytics.agentsByCategory).map(([cat, agents], i) => ({
       label: cat,
       value: agents.length,
-      color: ['#ef4444','#8b5cf6','#ec4899','#14b8a6'][i % 4],
+      color: ['#ef4444','#14b8a6','#ec4899','#14b8a6'][i % 4],
     }))
   , [analytics.agentsByCategory]);
 
@@ -291,7 +291,7 @@ export default function DashboardClient({ analytics, userRole }) {
   return (
     <div style={{ maxWidth: 1440, margin: '0 auto', padding: '24px' }}>
       {/* Header with infographic background */}
-      <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', marginBottom: 28, background: 'linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(139,92,246,0.08) 50%, rgba(236,72,153,0.06) 100%)', border: '1px solid var(--border)' }}>
+      <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', marginBottom: 28, background: 'linear-gradient(135deg, rgba(13,148,136,0.12) 0%, rgba(20,184,166,0.08) 50%, rgba(236,72,153,0.06) 100%)', border: '1px solid var(--border)' }}>
         <div style={{ position: 'absolute', top: 0, right: 0, width: '45%', height: '100%', opacity: 0.15 }}>
           <img src="/images/hero-dashboard.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
@@ -315,8 +315,8 @@ export default function DashboardClient({ analytics, userRole }) {
         {tabs.map(tab => (
           <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{
             padding: '10px 18px', borderRadius: 10, cursor: 'pointer',
-            background: activeTab === tab.id ? 'rgba(99,102,241,0.12)' : 'var(--bg-card)',
-            border: `1px solid ${activeTab === tab.id ? 'rgba(99,102,241,0.3)' : 'var(--border)'}`,
+            background: activeTab === tab.id ? 'rgba(13,148,136,0.12)' : 'var(--bg-card)',
+            border: `1px solid ${activeTab === tab.id ? 'rgba(13,148,136,0.3)' : 'var(--border)'}`,
             color: activeTab === tab.id ? 'var(--accent-light)' : 'var(--text-secondary)',
             fontSize: '0.82rem', fontWeight: activeTab === tab.id ? 600 : 400,
             transition: 'all 0.15s', display: 'flex', alignItems: 'center', gap: 6,
@@ -431,7 +431,7 @@ export default function DashboardClient({ analytics, userRole }) {
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
                   {skills.slice(0, 5).map(s => (
-                    <span key={s.slug} style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', background: 'rgba(99,102,241,0.06)', padding: '2px 6px', borderRadius: 4 }}>{s.name}</span>
+                    <span key={s.slug} style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', background: 'rgba(13,148,136,0.06)', padding: '2px 6px', borderRadius: 4 }}>{s.name}</span>
                   ))}
                   {skills.length > 5 && <span style={{ fontSize: '0.65rem', color: 'var(--accent-light)', padding: '2px 6px' }}>+{skills.length - 5} more</span>}
                 </div>

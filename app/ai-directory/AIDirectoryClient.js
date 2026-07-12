@@ -3,8 +3,8 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
 
 const CATEGORY_COLORS = {
-  '1. Core Frameworks & Libraries': '#6366f1',
-  '2. Model Codebases & Model Families': '#8b5cf6',
+  '1. Core Frameworks & Libraries': '#0d9488',
+  '2. Model Codebases & Model Families': '#14b8a6',
   '3. Inference Engines & Serving': '#f59e0b',
   '4. Agentic AI & Multi-Agent Systems': '#ef4444',
   '5. Retrieval-Augmented Generation (RAG) & Knowledge': '#14b8a6',
@@ -22,12 +22,12 @@ const CATEGORY_COLORS = {
 // ─── Capability Badge Definitions ───────────────────────────────
 const CAPABILITIES = {
   Chat:      { icon: '💬', color: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.25)' },
-  Voice:     { icon: '🎙️', color: '#8b5cf6', bg: 'rgba(139,92,246,0.10)', border: 'rgba(139,92,246,0.25)' },
+  Voice:     { icon: '🎙️', color: '#14b8a6', bg: 'rgba(20,184,166,0.10)', border: 'rgba(20,184,166,0.25)' },
   Video:     { icon: '🎬', color: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.25)' },
   Image:     { icon: '🎨', color: '#ec4899', bg: 'rgba(236,72,153,0.10)', border: 'rgba(236,72,153,0.25)' },
   Vision:    { icon: '👁️', color: '#f59e0b', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.25)' },
   Code:      { icon: '💻', color: '#10b981', bg: 'rgba(16,185,129,0.10)', border: 'rgba(16,185,129,0.25)' },
-  Reasoning: { icon: '🧠', color: '#6366f1', bg: 'rgba(99,102,241,0.10)', border: 'rgba(99,102,241,0.25)' },
+  Reasoning: { icon: '🧠', color: '#0d9488', bg: 'rgba(13,148,136,0.10)', border: 'rgba(13,148,136,0.25)' },
   Agents:    { icon: '🤖', color: '#f97316', bg: 'rgba(249,115,22,0.10)', border: 'rgba(249,115,22,0.25)' },
   Tools:     { icon: '🔧', color: '#64748b', bg: 'rgba(100,116,139,0.10)', border: 'rgba(100,116,139,0.25)' },
   Embeddings:{ icon: '📊', color: '#14b8a6', bg: 'rgba(20,184,166,0.10)', border: 'rgba(20,184,166,0.25)' },
@@ -127,7 +127,7 @@ function ProjectCard({ project, color, onClick }) {
 }
 
 function ProjectModal({ project, onClose }) {
-  const color = CATEGORY_COLORS[project.category] || '#6366f1';
+  const color = CATEGORY_COLORS[project.category] || '#0d9488';
   const caps = project.capabilities || [];
   if (!project) return null;
 
@@ -175,9 +175,9 @@ function ProjectModal({ project, onClose }) {
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 6,
               fontSize: '0.85rem', color: 'var(--accent-light)',
-              background: 'rgba(99,102,241,0.08)', padding: '8px 14px',
+              background: 'rgba(13,148,136,0.08)', padding: '8px 14px',
               borderRadius: 8, textDecoration: 'none',
-              border: '1px solid rgba(99,102,241,0.2)',
+              border: '1px solid rgba(13,148,136,0.2)',
             }}
           >
             🔗 {project.url}
@@ -295,8 +295,8 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
             🌐 Marq AI Directory
           </h1>
           <span style={{
-            fontSize: '0.7rem', fontWeight: 700, color: '#6366f1',
-            background: 'rgba(99,102,241,0.1)', padding: '4px 10px', borderRadius: 6,
+            fontSize: '0.7rem', fontWeight: 700, color: '#0d9488',
+            background: 'rgba(13,148,136,0.1)', padding: '4px 10px', borderRadius: 6,
           }}>
             {stats.totalProjects} PROJECTS
           </span>
@@ -402,8 +402,8 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
           onClick={() => { setSelectedCategory('all'); setPage(1); }}
           style={{
             padding: '8px 14px', borderRadius: 8, cursor: 'pointer',
-            background: selectedCategory === 'all' ? 'rgba(99,102,241,0.15)' : 'var(--bg-card)',
-            border: `1px solid ${selectedCategory === 'all' ? 'rgba(99,102,241,0.4)' : 'var(--border)'}`,
+            background: selectedCategory === 'all' ? 'rgba(13,148,136,0.15)' : 'var(--bg-card)',
+            border: `1px solid ${selectedCategory === 'all' ? 'rgba(13,148,136,0.4)' : 'var(--border)'}`,
             color: selectedCategory === 'all' ? 'var(--accent-light)' : 'var(--text-primary)',
             fontSize: '0.78rem', fontWeight: selectedCategory === 'all' ? 600 : 400,
           }}
@@ -443,8 +443,8 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
             <span style={{ 
               display: 'inline-flex', alignItems: 'center', gap: 4,
               fontSize: '0.72rem', padding: '3px 8px', borderRadius: 6,
-              background: 'rgba(99,102,241,0.08)', color: 'var(--accent)',
-              border: '1px solid rgba(99,102,241,0.2)',
+              background: 'rgba(13,148,136,0.08)', color: 'var(--accent)',
+              border: '1px solid rgba(13,148,136,0.2)',
             }}>
               {categories[selectedCategory]?.icon} {categories[selectedCategory]?.shortName}
               <span onClick={() => { setSelectedCategory('all'); setPage(1); }} style={{ cursor: 'pointer', marginLeft: 2, opacity: 0.7 }}>✕</span>
@@ -513,7 +513,7 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
 
       {!loading && Object.entries(groupedProjects).map(([subcat, subProjects]) => {
         const firstProject = subProjects[0];
-        const color = CATEGORY_COLORS[firstProject?.category] || '#6366f1';
+        const color = CATEGORY_COLORS[firstProject?.category] || '#0d9488';
         return (
           <div key={subcat} style={{ marginBottom: 32 }}>
             <div style={{

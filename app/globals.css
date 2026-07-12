@@ -80,7 +80,7 @@ a:hover {
   right: 0;
   width: 50%;
   height: 100%;
-  background: radial-gradient(circle at 70% 30%, rgba(139,92,246,0.06) 0%, transparent 50%);
+  background: radial-gradient(circle at 70% 30%, rgba(20,184,166,0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -105,8 +105,8 @@ a:hover {
 }
 
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 5px rgba(99,102,241,0.1); }
-  50% { box-shadow: 0 0 20px rgba(99,102,241,0.25); }
+  0%, 100% { box-shadow: 0 0 5px rgba(13,148,136,0.1); }
+  50% { box-shadow: 0 0 20px rgba(13,148,136,0.25); }
 }
 
 .hero-badge {

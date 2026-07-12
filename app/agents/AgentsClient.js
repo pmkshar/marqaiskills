@@ -551,7 +551,7 @@ function AgentDetailModal({ agent, onClose }) {
                 {agent.tools.map(tool => (
                   <span key={tool} style={{
                     fontSize: '0.85rem', color: 'var(--accent-light)',
-                    background: 'rgba(99,102,241,0.1)', padding: '6px 14px', borderRadius: 8,
+                    background: 'rgba(13,148,136,0.1)', padding: '6px 14px', borderRadius: 8,
                     fontFamily: 'monospace', fontWeight: 500,
                   }}>
                     {tool}
@@ -666,8 +666,8 @@ export default function AgentsClient({ userRole, canEdit }) {
           onClick={() => setFilterCategory('all')}
           style={{
             padding: '10px 18px', borderRadius: 10, cursor: 'pointer',
-            background: filterCategory === 'all' ? 'rgba(99,102,241,0.15)' : 'var(--bg-card)',
-            border: `1px solid ${filterCategory === 'all' ? 'rgba(99,102,241,0.4)' : 'var(--border)'}`,
+            background: filterCategory === 'all' ? 'rgba(13,148,136,0.15)' : 'var(--bg-card)',
+            border: `1px solid ${filterCategory === 'all' ? 'rgba(13,148,136,0.4)' : 'var(--border)'}`,
           }}
         >
           <span style={{ fontSize: '0.82rem', fontWeight: 600, color: filterCategory === 'all' ? 'var(--accent-light)' : 'var(--text-primary)' }}>All</span>

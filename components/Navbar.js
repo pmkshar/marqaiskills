@@ -21,7 +21,7 @@ function NavLink({ href, children, active }) {
       textDecoration: 'none',
       padding: '6px 12px',
       borderRadius: 8,
-      background: active ? 'rgba(99,102,241,0.1)' : 'transparent',
+      background: active ? 'rgba(13,148,136,0.1)' : 'transparent',
       transition: 'all 0.15s',
       fontWeight: active ? 600 : 400,
       display: 'flex',
@@ -132,7 +132,7 @@ export default function Navbar() {
                   <Link href="/skills" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>🧠 Skills</Link>
                   <Link href="/agents" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>🤖 Agents</Link>
                   <Link href="/ai-directory" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>🌐 AI Directory</Link>
-                  <Link href="/ideas" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s', fontWeight: 600, background: 'rgba(139,92,246,0.08)', borderLeft: '2px solid #8b5cf6' }}>💡 Ideas Lab</Link>
+                  <Link href="/ideas" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s', fontWeight: 600, background: 'rgba(13,148,136,0.08)', borderLeft: '2px solid var(--accent)' }}>💡 Ideas Lab</Link>
                   {(role === 'admin' || role === 'manager') && (
                     <Link href="/admin" onClick={() => setMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 8, color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.82rem', transition: 'background 0.1s' }}>⚙️ Admin</Link>
                   )}

@@ -216,9 +216,9 @@ export default function AdminClient({ users: initialUsers, currentRole, currentU
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <div style={{
                       width: 32, height: 32, borderRadius: '50%',
-                      background: (ROLE_COLORS[user.role] || '#6366f1') + '20',
+                      background: (ROLE_COLORS[user.role] || '#0d9488') + '20',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '0.8rem', fontWeight: 700, color: ROLE_COLORS[user.role] || '#6366f1',
+                      fontSize: '0.8rem', fontWeight: 700, color: ROLE_COLORS[user.role] || '#0d9488',
                     }}>
                       {user.name?.charAt(0).toUpperCase()}
                     </div>
@@ -247,8 +247,8 @@ export default function AdminClient({ users: initialUsers, currentRole, currentU
                       onClick={() => canWrite && user.id !== currentUserId && setEditingUser(user.id)}
                       style={{
                         fontSize: '0.8rem', fontWeight: 600,
-                        color: ROLE_COLORS[user.role] || '#6366f1',
-                        background: (ROLE_COLORS[user.role] || '#6366f1') + '15',
+                        color: ROLE_COLORS[user.role] || '#0d9488',
+                        background: (ROLE_COLORS[user.role] || '#0d9488') + '15',
                         padding: '4px 10px', borderRadius: 6,
                         cursor: canWrite && user.id !== currentUserId ? 'pointer' : 'default',
                       }}
@@ -318,7 +318,7 @@ export default function AdminClient({ users: initialUsers, currentRole, currentU
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
                 {role.permissions.map(p => (
-                  <span key={p} style={{ fontSize: '0.7rem', background: 'rgba(99,102,241,0.1)', color: 'var(--text-secondary)', padding: '2px 6px', borderRadius: 4 }}>
+                  <span key={p} style={{ fontSize: '0.7rem', background: 'rgba(13,148,136,0.1)', color: 'var(--text-secondary)', padding: '2px 6px', borderRadius: 4 }}>
                     {p}
                   </span>
                 ))}
