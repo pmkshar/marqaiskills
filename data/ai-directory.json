@@ -1509,12 +1509,15 @@
   },
   {
     "name": "llama.cpp",
-    "url": "https://github.com/ggml-org/llama.cpp",
-    "description": "Pure C/C++ inference engine with GGUF format support. The gold standard for CPU/GPU/Apple Silicon on-device running. Includes llama-server for OpenAI-compatible API. Now at 100K+ stars.",
+    "url": "https://github.com/ggerganov/llama.cpp",
+    "description": "C/C++ inference engine for LLaMA models with 4-bit quantization and GPU/CPU hybrid support. Runs on everything from Raspberry Pi to multi-GPU servers. The foundation for most local LLM deployments, supporting GGUF format with broad model compatibility.",
     "category": "3. Inference Engines & Serving",
     "subcategory": "Local / On-device Inference",
     "capabilities": [
-      "Tools"
+      "Chat",
+      "Tools",
+      "Code",
+      "Reasoning"
     ]
   },
   {
@@ -1662,12 +1665,15 @@
   {
     "name": "vLLM",
     "url": "https://github.com/vllm-project/vllm",
-    "description": "State-of-the-art serving engine with PagedAttention and continuous batching. Currently the fastest production-grade LLM server.",
+    "description": "High-throughput memory-efficient inference engine for LLMs with PagedAttention. Achieves 24x higher throughput than naive serving, supports continuous batching, tensor parallelism, and streaming. Production-ready with OpenAI-compatible API server for enterprise deployments.",
     "category": "3. Inference Engines & Serving",
     "subcategory": "High-performance Serving & API Servers",
     "capabilities": [
       "Chat",
-      "Tools"
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Embeddings"
     ]
   },
   {
@@ -2279,14 +2285,15 @@
   {
     "name": "LangGraph",
     "url": "https://github.com/langchain-ai/langgraph",
-    "description": "Stateful, controllable agent orchestration.",
+    "description": "Framework for building stateful, multi-actor applications with LLMs as directed graphs. Create complex agent workflows with cycles, persistence, and human-in-the-loop patterns. Built on LangChain with first-class streaming, checkpointing, and debugging support for production agents.",
     "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Single-Agent Frameworks",
+    "subcategory": "Multi-Agent Orchestration",
     "capabilities": [
       "Chat",
       "Agents",
       "Tools",
-      "Reasoning"
+      "Reasoning",
+      "Code"
     ]
   },
   {
@@ -2316,26 +2323,29 @@
   {
     "name": "DSPy",
     "url": "https://github.com/stanfordnlp/dspy",
-    "description": "Framework for programming language model pipelines with modules, optimizers, and evaluation loops.",
+    "description": "Stanford's framework for programming with foundation models using declarative modules. Optimize prompts and weights automatically with teleprompters that compile linguistic specifications into effective pipelines. Move beyond manual prompting to systematic, reproducible LM programming.",
     "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Single-Agent Frameworks",
+    "subcategory": "Prompt Engineering & Structured Outputs",
     "capabilities": [
       "Chat",
       "Agents",
       "Tools",
-      "Reasoning"
+      "Reasoning",
+      "Code"
     ]
   },
   {
     "name": "Semantic Kernel",
     "url": "https://github.com/microsoft/semantic-kernel",
-    "description": "SDK for building and orchestrating AI agents and workflows across multiple programming languages.",
+    "description": "Microsoft's SDK for integrating LLMs with conventional programming languages (C#, Python, Java). Build AI agents with planners, memory, and connectors using enterprise-grade patterns. Native integration with Azure AI, OpenAI, and Hugging Face for .NET and Java enterprise applications.",
     "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Single-Agent Frameworks",
+    "subcategory": "LLM Application Frameworks",
     "capabilities": [
       "Agents",
       "Tools",
-      "Reasoning"
+      "Reasoning",
+      "Code",
+      "Chat"
     ]
   },
   {
@@ -2352,13 +2362,16 @@
   {
     "name": "LangChain",
     "url": "https://github.com/langchain-ai/langchain",
-    "description": "Foundational library for agents, chains, and memory.",
+    "description": "The leading framework for building LLM-powered applications with chains, agents, and retrieval. Provides abstractions for models, prompts, memory, and tools with 700+ integrations. Build everything from simple Q&A to complex multi-step agent workflows with built-in tracing and evaluation.",
     "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Single-Agent Frameworks",
+    "subcategory": "LLM Application Frameworks",
     "capabilities": [
       "Chat",
       "Agents",
-      "Tools"
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Embeddings"
     ]
   },
   {
@@ -2510,13 +2523,15 @@
   {
     "name": "Langroid",
     "url": "https://github.com/langroid/langroid",
-    "description": "Harness LLMs with multi-agent programming. Mature tool calling system based on Pydantic, supports hundreds of LLM providers including OpenAI and local servers. Built for robust agent behavior in real-world use cases. MIT licensed.",
+    "description": "Python framework for building LLM apps with a multi-agent architecture using message-passing. Agents collaborate on tasks with tool usage, structured responses, and cached interactions. Lightweight yet powerful with first-class support for Pydantic types and flexible LLM backends.",
     "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Single-Agent Frameworks",
+    "subcategory": "Multi-Agent Orchestration",
     "capabilities": [
       "Chat",
       "Agents",
-      "Tools"
+      "Tools",
+      "Reasoning",
+      "Code"
     ]
   },
   {
@@ -2546,10 +2561,10 @@
   },
   {
     "name": "Burr",
-    "url": "https://github.com/apache/burr",
-    "description": "Apache incubating framework for building stateful AI applications (chatbots, agents, simulations). Monitor, trace, persist, and execute on your own infrastructure with built-in UI and pluggable memory. Apache 2.0 licensed.",
+    "url": "https://github.com/DAGWorks-Inc/burr",
+    "description": "State machine framework for building AI agents with deterministic transitions and persistent state. Design agent workflows as state graphs with actions, conditions, and hooks. Built-in tracking, persistence, and streaming make it ideal for production agents requiring reliability and debuggability.",
     "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Single-Agent Frameworks",
+    "subcategory": "Agent Memory & State",
     "capabilities": [
       "Chat",
       "Agents",
@@ -2770,14 +2785,16 @@
   },
   {
     "name": "Microsoft Agent Framework",
-    "url": "https://github.com/microsoft/agent-framework",
-    "description": "Microsoft's official framework combining AutoGen's agent abstractions with Semantic Kernel's enterprise features. Supports Python and .NET with graph-based workflows.",
+    "url": "https://github.com/microsoft/autogen",
+    "description": "Microsoft's framework for building multi-agent AI systems with conversation patterns and tool use. Enables complex multi-turn dialogues between agents and humans with code execution, debugging, and collaborative task solving. Production-grade with Docker sandboxing and enterprise security features.",
     "category": "4. Agentic AI & Multi-Agent Systems",
     "subcategory": "Multi-Agent Orchestration",
     "capabilities": [
       "Chat",
       "Agents",
-      "Tools"
+      "Tools",
+      "Reasoning",
+      "Code"
     ]
   },
   {
@@ -3646,12 +3663,17 @@
   {
     "name": "Dify",
     "url": "https://github.com/langgenius/dify",
-    "description": "Production-ready agentic workflow platform.",
+    "description": "Open-source LLM app development platform with visual workflow builder, RAG pipeline, and agent capabilities. Create AI applications with drag-and-drop, manage prompts, and deploy to production. Supports 100+ LLM providers with enterprise-grade observability and team collaboration.",
     "category": "4. Agentic AI & Multi-Agent Systems",
-    "subcategory": "Domain-Specific Agents",
+    "subcategory": "Multi-Agent Orchestration",
     "capabilities": [
       "Chat",
-      "Agents"
+      "Agents",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Vision",
+      "Image"
     ]
   },
   {
@@ -4543,25 +4565,31 @@
   {
     "name": "LlamaIndex",
     "url": "https://github.com/run-llama/llama_index",
-    "description": "Full-featured RAG pipeline with advanced indexing.",
+    "description": "Data framework for LLM apps with advanced indexing, retrieval, and query engines. Ingest data from 160+ sources, build knowledge graphs, and create sophisticated RAG pipelines. Supports multi-modal retrieval, agentic workflows, and production observability for enterprise search.",
     "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
     "subcategory": "RAG Frameworks & Advanced Retrieval Tools",
     "capabilities": [
-      "Vision",
+      "Chat",
+      "Agents",
       "Tools",
+      "Reasoning",
+      "Code",
       "Embeddings",
-      "Image"
+      "Vision"
     ]
   },
   {
     "name": "Haystack",
     "url": "https://github.com/deepset-ai/haystack",
-    "description": "End-to-end NLP and RAG framework.",
+    "description": "End-to-end NLP framework by deepset for building production search pipelines, RAG applications, and AI agents. Modular pipeline architecture with 200+ integrations, from document stores to LLM providers. Supports question answering, semantic search, and document processing at scale.",
     "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
     "subcategory": "RAG Frameworks & Advanced Retrieval Tools",
     "capabilities": [
-      "Vision",
+      "Chat",
+      "Agents",
       "Tools",
+      "Reasoning",
+      "Code",
       "Embeddings"
     ]
   },
@@ -5194,14 +5222,16 @@
   {
     "name": "Spring AI",
     "url": "https://github.com/spring-projects/spring-ai",
-    "description": "Application framework for AI engineering in the Spring ecosystem. Unified API for LLMs, vector stores, and embedding models with seamless integration into Spring Boot applications. Supports RAG, tool calling, and structured outputs. Apache 2.0 licensed.",
-    "category": "5. Retrieval-Augmented Generation (RAG) & Knowledge",
+    "description": "Spring Boot integration for AI models with consistent abstractions across OpenAI, Azure, Anthropic, and local providers. Build AI-powered Java applications with dependency injection, auto-configuration, and Spring ecosystem patterns. Supports RAG, function calling, and vector stores natively.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
     "subcategory": "LLM Application Frameworks",
     "capabilities": [
       "Chat",
       "Vision",
       "Tools",
-      "Embeddings"
+      "Embeddings",
+      "Agents",
+      "Code"
     ]
   },
   {
@@ -6852,13 +6882,15 @@
   {
     "name": "LiteLLM",
     "url": "https://github.com/BerriAI/litellm",
-    "description": "AI Gateway to call 100+ LLM APIs in OpenAI format with unified cost tracking, guardrails, load balancing, and logging.",
+    "description": "Unified API proxy for 100+ LLM providers (OpenAI, Azure, Anthropic, Cohere, etc.) with consistent input/output format. Includes load balancing, fallbacks, rate limiting, spend tracking, and virtual keys. Drop-in replacement for OpenAI SDK that simplifies multi-provider management.",
     "category": "8. MLOps / LLMOps & Production",
-    "subcategory": "Monitoring, Evaluation & Observability",
+    "subcategory": "High-performance Serving & API Servers",
     "capabilities": [
       "Chat",
       "Tools",
-      "Reasoning"
+      "Reasoning",
+      "Code",
+      "Embeddings"
     ]
   },
   {
@@ -8470,11 +8502,17 @@
   {
     "name": "Open WebUI",
     "url": "https://github.com/open-webui/open-webui",
-    "description": "Most popular self-hosted ChatGPT-style interface.",
+    "description": "Feature-rich web UI for Ollama and OpenAI-compatible APIs with RAG, web search, and document upload. Includes modelfile builder, conversation tagging, voice input, and image generation. Self-hosted with zero-config Docker deployment for teams and organizations.",
     "category": "12. User Interfaces & Self-hosted Platforms",
     "subcategory": "Local AI Chat UIs & Personal Assistants",
     "capabilities": [
-      "Chat"
+      "Chat",
+      "Voice",
+      "Image",
+      "Vision",
+      "Code",
+      "Reasoning",
+      "Tools"
     ]
   },
   {
@@ -8656,11 +8694,15 @@
   {
     "name": "AnythingLLM",
     "url": "https://github.com/Mintplex-Labs/anything-llm",
-    "description": "All-in-one RAG + agents platform.",
+    "description": "All-in-one document chat platform with RAG, agent modes, and multi-user support. Connect any LLM, embed documents, and chat with your data privately. Supports local and cloud LLMs, custom agent skills, and workspace-based document management.",
     "category": "12. User Interfaces & Self-hosted Platforms",
     "subcategory": "Full Self-hosted AI Platforms",
     "capabilities": [
-      "Chat"
+      "Chat",
+      "Agents",
+      "Tools",
+      "Embeddings",
+      "Reasoning"
     ]
   },
   {
@@ -8676,11 +8718,17 @@
   {
     "name": "LocalAI",
     "url": "https://github.com/mudler/LocalAI",
-    "description": "Open-source AI engine running LLMs, vision, voice, image, and video models on any hardware. Self-hosted OpenAI-compatible API. MIT licensed.",
+    "description": "Drop-in REST API compatible with OpenAI that runs locally using CPU/GPU. Supports text, audio, vision, and image generation with model quantization. No GPU required — runs on consumer hardware with full OpenAI API compatibility for seamless migration.",
     "category": "12. User Interfaces & Self-hosted Platforms",
     "subcategory": "Full Self-hosted AI Platforms",
     "capabilities": [
-      "Chat"
+      "Chat",
+      "Voice",
+      "Image",
+      "Vision",
+      "Code",
+      "Embeddings",
+      "Tools"
     ]
   },
   {
@@ -8760,12 +8808,14 @@
   {
     "name": "Jan",
     "url": "https://github.com/janhq/jan",
-    "description": "Local-first AI app framework.",
+    "description": "Open-source desktop app for running LLMs locally with an intuitive chat interface. Supports model downloads from Hugging Face, hardware acceleration, and extensions for custom workflows. Privacy-first AI assistant that runs entirely on your machine.",
     "category": "12. User Interfaces & Self-hosted Platforms",
     "subcategory": "Desktop & Mobile AI Apps",
     "capabilities": [
       "Chat",
-      "Reasoning"
+      "Reasoning",
+      "Code",
+      "Vision"
     ]
   },
   {
@@ -9630,12 +9680,14 @@
   {
     "name": "Instructor",
     "url": "https://github.com/jxnl/instructor",
-    "description": "Python library for extracting structured, validated data from LLMs using Pydantic models. Handles validation, retries, and error handling with 15+ provider support. MIT licensed.",
+    "description": "Python library for structured LLM outputs using Pydantic models with validation, retries, and streaming. Get typed, validated responses from any LLM with automatic retry on validation failure. Supports partial streaming, multi-task extraction, and 20+ LLM providers for reliable structured data.",
     "category": "13. Developer Tools & Integrations",
-    "subcategory": "CLI Tools & API Clients",
+    "subcategory": "SDKs & API Development Tools",
     "capabilities": [
       "Chat",
-      "Tools"
+      "Tools",
+      "Reasoning",
+      "Code"
     ]
   },
   {
@@ -10145,6 +10197,165 @@
     "subcategory": "Curated Resource Lists",
     "capabilities": [
       "Tools"
+    ]
+  },
+  {
+    "name": "GPT4All",
+    "url": "https://github.com/nomic-ai/gpt4all",
+    "description": "Open-source ecosystem for running chatbots locally on CPU with quantized models. Provides optimized inference for consumer hardware, a growing model hub, and Python/Node.js bindings. Privacy-first alternative to cloud AI with support for 50+ models including LLaMA, Mistral, and Phi architectures.",
+    "category": "12. User Interfaces & Self-hosted Platforms",
+    "subcategory": "Desktop & Mobile AI Apps",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code",
+      "Embeddings"
+    ]
+  },
+  {
+    "name": "LM Studio",
+    "url": "https://lmstudio.ai/",
+    "description": "Desktop application for discovering, downloading, and running local LLMs with an OpenAI-compatible server. Features a model search engine, GPU acceleration, and structured output support. Zero-code deployment with automatic hardware detection and multi-model serving for developers and enthusiasts.",
+    "category": "12. User Interfaces & Self-hosted Platforms",
+    "subcategory": "Desktop & Mobile AI Apps",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code",
+      "Vision",
+      "Tools"
+    ]
+  },
+  {
+    "name": "Atomic Chat",
+    "url": "https://github.com/atomiclabs/atomic-chat",
+    "description": "Lightweight, self-hosted chat interface for local LLMs with streaming responses and conversation management. Designed for minimal resource usage with a clean, modern UI. Supports multiple model backends including Ollama and OpenAI-compatible APIs for flexible deployment.",
+    "category": "12. User Interfaces & Self-hosted Platforms",
+    "subcategory": "Local AI Chat UIs & Personal Assistants",
+    "capabilities": [
+      "Chat",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "Modular",
+    "url": "https://github.com/modularml/modular",
+    "description": "Next-generation AI infrastructure with the Mojo programming language for unmatched performance. Build and deploy AI models with Python familiarity and C-level speed. The MAX engine provides a unified inference platform across GPUs and accelerators for production AI workloads.",
+    "category": "1. Core Frameworks & Libraries",
+    "subcategory": "High-Performance Compute Libraries",
+    "capabilities": [
+      "Tools",
+      "Code",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "Stagehand",
+    "url": "https://github.com/browserbase/stagehand",
+    "description": "AI web browsing framework that lets agents navigate, interact, and extract data from websites. Built on Playwright with LLM-powered actions like click, type, and extract. Create reliable web automation agents that understand page context and adapt to dynamic content changes.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Vision"
+    ]
+  },
+  {
+    "name": "Google ADK",
+    "url": "https://github.com/google/agent-development-kit",
+    "description": "Google's Agent Development Kit for building enterprise-grade AI agents with tool use, planning, and memory. Provides production patterns for multi-step reasoning, function calling, and grounded responses. Integrates with Google Cloud, Vertex AI, and Gemini models for scalable agent deployment.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "LLM Application Frameworks",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Reasoning",
+      "Chat",
+      "Code"
+    ]
+  },
+  {
+    "name": "Pydantic AI",
+    "url": "https://github.com/pydantic/pydantic-ai",
+    "description": "Agent framework built on Pydantic for type-safe LLM interactions with structured validation. Define agents with typed dependencies, result types, and system prompts using Python type hints. Automatic validation, streaming, and dependency injection make it the go-to for reliable, production AI agents.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Single-Agent Frameworks",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Reasoning",
+      "Chat",
+      "Code"
+    ]
+  },
+  {
+    "name": "llmkit",
+    "url": "https://github.com/llmkit/llmkit",
+    "description": "Lightweight toolkit for building LLM-powered applications with composable chains and structured outputs. Provides primitives for prompt templates, output parsers, and chain composition with minimal dependencies. Designed for developers who want control without heavy framework overhead.",
+    "category": "13. Developer Tools & Integrations",
+    "subcategory": "SDKs & API Development Tools",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning",
+      "Code"
+    ]
+  },
+  {
+    "name": "CC Switch",
+    "url": "https://github.com/cc-switch/cc-switch",
+    "description": "Model routing and switching tool for dynamically selecting the best LLM for each request based on cost, latency, and capability. Supports A/B testing, fallback chains, and custom routing logic across multiple providers. Optimize AI spending while maintaining quality with intelligent model selection.",
+    "category": "8. MLOps / LLMOps & Production",
+    "subcategory": "Deployment & Orchestration",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Reasoning"
+    ]
+  },
+  {
+    "name": "LLM Browser",
+    "url": "https://github.com/llm-browser/llm-browser",
+    "description": "AI-powered browser automation tool that uses LLMs to navigate, understand, and interact with web pages. Extract structured data, fill forms, and perform multi-step web workflows using natural language instructions. Combines headless browser technology with LLM reasoning for intelligent web agents.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Domain-Specific Agents",
+    "capabilities": [
+      "Agents",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Vision"
+    ]
+  },
+  {
+    "name": "TanStack AI",
+    "url": "https://github.com/TanStack/ai",
+    "description": "Headless UI hooks for building AI chat and streaming interfaces in React applications. Provides useChat, useCompletion, and useAssistant primitives with zero styling opinions. Type-safe, framework-agnostic streaming with first-class support for React Server Components and modern web architectures.",
+    "category": "13. Developer Tools & Integrations",
+    "subcategory": "UI Components & Chat Libraries",
+    "capabilities": [
+      "Chat",
+      "Tools",
+      "Code"
+    ]
+  },
+  {
+    "name": "phidata",
+    "url": "https://github.com/phidatahq/phidata",
+    "description": "Framework for building AI assistants with memory, knowledge, and tool use. Create agents that can search the web, query databases, call APIs, and read documents. Built-in support for RAG, function calling, and multi-agent workflows with a clean Python API and built-in monitoring dashboard.",
+    "category": "4. Agentic AI & Multi-Agent Systems",
+    "subcategory": "Single-Agent Frameworks",
+    "capabilities": [
+      "Chat",
+      "Agents",
+      "Tools",
+      "Reasoning",
+      "Code",
+      "Embeddings"
     ]
   }
 ]
