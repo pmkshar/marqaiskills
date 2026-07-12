@@ -68,7 +68,8 @@ export default function Navbar() {
           <NavLink href="/skills" active={pathname === '/skills'}>🧠 Skills</NavLink>
           <NavLink href="/agents" active={pathname === '/agents'}>🤖 Agents</NavLink>
           <NavLink href="/ai-directory" active={pathname === '/ai-directory'}>🌐 AI Directory</NavLink>
-          
+          <NavLink href="/ideas" active={pathname === '/ideas'}>💡 Ideas</NavLink>
+
           {(role === 'admin' || role === 'manager') && (
             <NavLink href="/admin" active={pathname === '/admin'}>⚙️ Admin</NavLink>
           )}
