@@ -332,8 +332,8 @@ export default function DashboardClient({ analytics, userRole }) {
         <div>
           {/* KPI Row */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, marginBottom: 28 }}>
-            <KPICard icon="🧠" label="Skills" value={analytics.accessibleSkills} change={12} changeDir="up" color="#6366f1" sparkData={sparkSkills} />
-            <KPICard icon="🤖" label="Agents" value={analytics.totalAgents} change={8} changeDir="up" color="#8b5cf6" sparkData={sparkAgents} />
+            <KPICard icon="🧠" label="Skills" value={analytics.accessibleSkills} change={12} changeDir="up" color="#0d9488" sparkData={sparkSkills} />
+            <KPICard icon="🤖" label="Agents" value={analytics.totalAgents} change={8} changeDir="up" color="#14b8a6" sparkData={sparkAgents} />
             <KPICard icon="🌐" label="AI Projects" value={analytics.aiDirStats.totalProjects} change={15} changeDir="up" color="#ec4899" sparkData={sparkProjects} />
             <KPICard icon="📂" label="Categories" value={analytics.totalCategories} color="#10b981" sparkData={[]} />
             {(role === 'admin' || role === 'manager') && (
@@ -365,10 +365,10 @@ export default function DashboardClient({ analytics, userRole }) {
               <SectionHeader title="Platform Coverage" icon="📈" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: 16, justifyContent: 'center' }}>
                 <div style={{ textAlign: 'center' }}>
-                  <RadialGauge value={analytics.accessibleSkills} max={analytics.totalSkills} color="#6366f1" label="Skills Access" />
+                  <RadialGauge value={analytics.accessibleSkills} max={analytics.totalSkills} color="#0d9488" label="Skills Access" />
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <RadialGauge value={analytics.totalAgents} max={9} color="#8b5cf6" label="Agents" />
+                  <RadialGauge value={analytics.totalAgents} max={9} color="#14b8a6" label="Agents" />
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <RadialGauge value={analytics.aiDirStats.totalCategories} max={14} color="#ec4899" label="AI Categories" />
@@ -391,8 +391,8 @@ export default function DashboardClient({ analytics, userRole }) {
           {/* Activity Feed */}
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 14, padding: 24 }}>
             <SectionHeader title="Recent Activity" icon="⚡" />
-            <ActivityItem icon="🧠" text="Skills Library updated with new categories" time="2 hours ago" color="#6366f1" />
-            <ActivityItem icon="🤖" text="Agent response simulator improved" time="5 hours ago" color="#8b5cf6" />
+            <ActivityItem icon="🧠" text="Skills Library updated with new categories" time="2 hours ago" color="#0d9488" />
+            <ActivityItem icon="🤖" text="Agent response simulator improved" time="5 hours ago" color="#14b8a6" />
             <ActivityItem icon="🌐" text="AI Directory expanded to 931 projects" time="1 day ago" color="#ec4899" />
             <ActivityItem icon="🔒" text="RBAC permissions reviewed" time="2 days ago" color="#10b981" />
             <ActivityItem icon="📊" text="Dashboard analytics module launched" time="3 days ago" color="#f59e0b" />
@@ -404,8 +404,8 @@ export default function DashboardClient({ analytics, userRole }) {
       {activeTab === 'skills' && (
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, marginBottom: 28 }}>
-            <KPICard icon="🧠" label="Total Skills" value={analytics.accessibleSkills} color="#6366f1" />
-            <KPICard icon="📂" label="Categories" value={Object.keys(analytics.skillsByCategory).length} color="#8b5cf6" />
+            <KPICard icon="🧠" label="Total Skills" value={analytics.accessibleSkills} color="#0d9488" />
+            <KPICard icon="📂" label="Categories" value={Object.keys(analytics.skillsByCategory).length} color="#14b8a6" />
             <KPICard icon="📊" label="Avg per Category" value={Math.round(analytics.accessibleSkills / (Object.keys(analytics.skillsByCategory).length || 1))} color="#ec4899" />
             <KPICard icon="🎯" label="Access Rate" value={`${Math.round((analytics.accessibleSkills / analytics.totalSkills) * 100)}%`} color="#10b981" />
           </div>
@@ -451,9 +451,9 @@ export default function DashboardClient({ analytics, userRole }) {
       {activeTab === 'agents' && (
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, marginBottom: 28 }}>
-            <KPICard icon="🤖" label="Total Agents" value={analytics.totalAgents} color="#8b5cf6" />
+            <KPICard icon="🤖" label="Total Agents" value={analytics.totalAgents} color="#14b8a6" />
             <KPICard icon="⚡" label="Execution" value={(analytics.agentsByCategory['Execution'] || []).length} color="#ef4444" />
-            <KPICard icon="🔗" label="Coordination" value={(analytics.agentsByCategory['Coordination'] || []).length} color="#6366f1" />
+            <KPICard icon="🔗" label="Coordination" value={(analytics.agentsByCategory['Coordination'] || []).length} color="#0d9488" />
             <KPICard icon="🎨" label="Design" value={(analytics.agentsByCategory['Design'] || []).length} color="#ec4899" />
             <KPICard icon="🧭" label="Navigation" value={(analytics.agentsByCategory['Navigation'] || []).length} color="#14b8a6" />
           </div>
@@ -504,8 +504,8 @@ export default function DashboardClient({ analytics, userRole }) {
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, marginBottom: 28 }}>
             <KPICard icon="🌐" label="Total Projects" value={analytics.aiDirStats.totalProjects} color="#ec4899" />
-            <KPICard icon="📂" label="Categories" value={analytics.aiDirStats.totalCategories} color="#6366f1" />
-            <KPICard icon="🏷️" label="Subcategories" value={analytics.aiDirStats.totalSubcategories} color="#8b5cf6" />
+            <KPICard icon="📂" label="Categories" value={analytics.aiDirStats.totalCategories} color="#0d9488" />
+            <KPICard icon="🏷️" label="Subcategories" value={analytics.aiDirStats.totalSubcategories} color="#14b8a6" />
           </div>
 
           <div style={{ borderRadius: 16, overflow: 'hidden', marginBottom: 28, position: 'relative', border: '1px solid var(--border)' }}>
