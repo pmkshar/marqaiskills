@@ -4,6 +4,7 @@ import { useSession, signOut } from 'next-auth/react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const ROLE_BADGES = {
   admin: { label: 'Admin', color: '#ef4444', bg: 'rgba(239,68,68,0.15)' },
@@ -43,7 +44,7 @@ export default function Navbar() {
   return (
     <nav style={{
       position: 'sticky', top: 0, zIndex: 50,
-      background: 'rgba(10,10,15,0.9)', backdropFilter: 'blur(16px)',
+      background: 'var(--nav-bg, rgba(10,10,15,0.9))', backdropFilter: 'blur(16px)',
       borderBottom: '1px solid var(--border)', padding: '0 24px',
       display: 'flex', alignItems: 'center', height: 60,
     }}>
@@ -73,7 +74,12 @@ export default function Navbar() {
           )}
           
           <div style={{ width: 1, height: 24, background: 'var(--border)', margin: '0 8px' }} />
+
+          {/* Theme Switcher */}
+          <ThemeSwitcher />
           
+          <div style={{ width: 1, height: 24, background: 'var(--border)', margin: '0 8px' }} />
+
           <div style={{ position: 'relative' }}>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -139,7 +145,9 @@ export default function Navbar() {
       )}
       
       {status === 'unauthenticated' && (
-        <div style={{ display: 'flex', gap: 10 }}>
+        <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+          <ThemeSwitcher />
+          <div style={{ width: 1, height: 24, background: 'var(--border)', margin: '0 4px' }} />
           <Link href="/auth/login" style={{
             padding: '8px 18px', fontSize: '0.82rem', color: 'var(--text-secondary)',
             textDecoration: 'none', border: '1px solid var(--border)', borderRadius: 10,

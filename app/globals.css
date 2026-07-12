@@ -17,12 +17,21 @@
   --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
   --shadow-glow: 0 0 20px rgba(99,102,241,0.15);
+  --nav-bg: rgba(10,10,15,0.9);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Smooth theme transitions */
+html, body, nav, .skill-card, .modal-content, .modal-overlay,
+.glass-card, input, textarea, select, button, a,
+[class*="card"], [class*="panel"], [class*="container"] {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
@@ -41,7 +50,8 @@ a {
 }
 
 a:hover {
-  color: #a78bfa;
+  color: var(--accent-light);
+  opacity: 0.8;
 }
 
 /* ── Hero Section ── */
@@ -295,7 +305,7 @@ a:hover {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 8px;
-  color: 'var(--text-primary)';
+  color: var(--text-primary);
 }
 
 .skill-card-description {
@@ -324,7 +334,7 @@ a:hover {
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify: center;
   padding: 24px;
   animation: fadeIn 0.2s ease;
 }
@@ -549,4 +559,56 @@ textarea {
 
 .glow-border:hover::after {
   opacity: 1;
+}
+
+/* ── Light theme specific overrides ── */
+[data-theme="light-clinical"] .skill-card:hover {
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+}
+
+[data-theme="light-clinical"] .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="light-clinical"] .glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.05);
+}
+
+[data-theme="light-clinical"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light-clinical"] .modal-body code {
+  background: rgba(99, 102, 241, 0.06);
+}
+
+/* ── Cyber Neon theme glow effects ── */
+[data-theme="cyber-neon"] .skill-card:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.1), var(--shadow-md);
+}
+
+[data-theme="cyber-neon"] .glass-card {
+  border-color: rgba(0, 255, 136, 0.15);
+}
+
+[data-theme="cyber-neon"] .glass-card:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.08);
+}
+
+/* ── Theme transition flash prevention ── */
+html[data-theme] body {
+  opacity: 1;
+}
+
+html:not([data-theme]) body {
+  opacity: 0;
+  animation: bodyReveal 0.1s ease forwards;
+}
+
+@keyframes bodyReveal {
+  to { opacity: 1; }
 }
