@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { searchProjects, getProjectsByCategory, getCategories } from '../../../../lib/ai-directory';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);

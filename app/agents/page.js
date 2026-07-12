@@ -4,8 +4,17 @@ import { redirect } from 'next/navigation';
 import { hasPermission } from '../../lib/rbac';
 import AgentsClient from './AgentsClient';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AgentsPage() {
-  const session = await getServerSession(authOptions);
+  let session = null;
+  
+  try {
+    session = await getServerSession(authOptions);
+  } catch (e) {
+    console.error('Agents session error:', e.message);
+    redirect('/auth/login');
+  }
   
   if (!session?.user?.role) {
     redirect('/auth/login');

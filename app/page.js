@@ -4,18 +4,36 @@ import { getAllSkills } from '../lib/skills';
 import { getAccessibleCategories, hasPermission } from '../lib/rbac';
 import HomeClient from './HomeClient';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
-  const session = await getServerSession(authOptions);
-  const allSkills = getAllSkills();
-  
-  let filteredSkills = allSkills;
+  let session = null;
+  let allSkills = [];
+  let filteredSkills = [];
   let userRole = null;
   let permissions = {};
   
+  try {
+    session = await getServerSession(authOptions);
+  } catch (e) {
+    console.error('Session error:', e.message);
+  }
+  
+  try {
+    allSkills = getAllSkills();
+  } catch (e) {
+    console.error('Skills loading error:', e.message);
+    allSkills = [];
+  }
+  
   if (session?.user?.role) {
     userRole = session.user.role;
-    const accessibleCategories = getAccessibleCategories(userRole);
-    filteredSkills = allSkills.filter(s => accessibleCategories.includes(s.category));
+    try {
+      const accessibleCategories = getAccessibleCategories(userRole);
+      filteredSkills = allSkills.filter(s => accessibleCategories.includes(s.category));
+    } catch (e) {
+      filteredSkills = allSkills;
+    }
     permissions = {
       canWrite: hasPermission(userRole, 'skills:write'),
       canDelete: hasPermission(userRole, 'skills:delete'),

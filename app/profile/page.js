@@ -5,8 +5,17 @@ import { ROLES, getAccessibleCategories, hasPermission } from '../../lib/rbac';
 import { getAllSkills } from '../../lib/skills';
 import ProfileClient from './ProfileClient';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProfilePage() {
-  const session = await getServerSession(authOptions);
+  let session = null;
+  
+  try {
+    session = await getServerSession(authOptions);
+  } catch (e) {
+    console.error('Profile session error:', e.message);
+    redirect('/auth/login');
+  }
   
   if (!session?.user) {
     redirect('/auth/login');
@@ -14,9 +23,22 @@ export default async function ProfilePage() {
   
   const role = session.user.role;
   const roleInfo = ROLES[role] || ROLES.viewer;
-  const accessibleCategories = getAccessibleCategories(role);
-  const allSkills = getAllSkills();
-  const accessibleSkills = allSkills.filter(s => accessibleCategories.includes(s.category));
+  let accessibleCategories = [];
+  let allSkills = [];
+  let accessibleSkills = [];
+  
+  try {
+    accessibleCategories = getAccessibleCategories(role);
+  } catch (e) {
+    console.error('Profile categories error:', e.message);
+  }
+  
+  try {
+    allSkills = getAllSkills();
+    accessibleSkills = allSkills.filter(s => accessibleCategories.includes(s.category));
+  } catch (e) {
+    console.error('Profile skills error:', e.message);
+  }
   
   const permissions = {};
   const allPerms = ['skills:read', 'skills:write', 'skills:delete', 'users:read', 'users:write', 'users:delete', 'admin:dashboard', 'admin:settings', 'categories:read', 'categories:write', 'profile:read', 'profile:write'];
