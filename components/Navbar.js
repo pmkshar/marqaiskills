@@ -63,12 +63,12 @@ export default function Navbar() {
       )}
       
       {status === 'authenticated' && session?.user && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'nowrap', overflowX: 'auto', maxWidth: 'calc(100vw - 280px)' }}>
           <NavLink href="/dashboard" active={pathname === '/dashboard'}>📊 Dashboard</NavLink>
           <NavLink href="/skills" active={pathname === '/skills'}>🧠 Skills</NavLink>
           <NavLink href="/agents" active={pathname === '/agents'}>🤖 Agents</NavLink>
           <NavLink href="/ai-directory" active={pathname === '/ai-directory'}>🌐 AI Directory</NavLink>
-          <NavLink href="/ideas" active={pathname === '/ideas'}>💡 Ideas</NavLink>
+          <NavLink href="/ideas" active={pathname === '/ideas'}>💡 Ideas Lab</NavLink>
 
           {(role === 'admin' || role === 'manager') && (
             <NavLink href="/admin" active={pathname === '/admin'}>⚙️ Admin</NavLink>

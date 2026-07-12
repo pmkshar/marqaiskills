@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 
 const CATEGORY_COLORS = {
   'Frontend & UI': '#3b82f6',
@@ -199,13 +200,37 @@ function CostEstimate({ costs }) {
   );
 }
 
-export default function IdeasClient({ userRole, userName }) {
+export default function IdeasClient() {
+  const { data: session, status } = useSession();
+  const userRole = session?.user?.role || 'viewer';
+  const userName = session?.user?.name || 'User';
   const [idea, setIdea] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [history, setHistory] = useState([]);
   const resultRef = useRef(null);
+
+  // Redirect if not authenticated
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      window.location.href = '/auth/login';
+    }
+  }, [status]);
+
+  // Show loading while session is being determined
+  if (status === 'loading') {
+    return (
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '32px 24px', textAlign: 'center' }}>
+        <div style={{ fontSize: '2rem', marginBottom: 16 }}>💡</div>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Loading Ideas Lab...</p>
+      </div>
+    );
+  }
+
+  if (status === 'unauthenticated') {
+    return null;
+  }
 
   // Load history from localStorage
   useEffect(() => {
@@ -280,7 +305,7 @@ export default function IdeasClient({ userRole, userName }) {
     <div style={{ maxWidth: 1200, margin: '0 auto', padding: '32px 24px' }}>
       {/* Header */}
       <div style={{ marginBottom: 32 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, flexWrap: 'wrap' }}>
           <h1 style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>
             💡 Ideas Lab
           </h1>
@@ -289,6 +314,13 @@ export default function IdeasClient({ userRole, userName }) {
             background: 'rgba(139,92,246,0.1)', padding: '4px 10px', borderRadius: 6,
           }}>
             AI-POWERED
+          </span>
+          <span style={{
+            fontSize: '0.68rem', fontWeight: 500, color: 'var(--text-muted)',
+            background: 'var(--bg-card)', padding: '4px 10px', borderRadius: 6,
+            border: '1px solid var(--border)',
+          }}>
+            Welcome, {userName} ({userRole})
           </span>
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, maxWidth: 700 }}>
