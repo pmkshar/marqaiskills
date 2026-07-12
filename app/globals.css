@@ -1,23 +1,23 @@
 :root {
-  --bg-primary: #f5f6fa;
-  --bg-secondary: #ffffff;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
   --bg-card: #ffffff;
-  --bg-card-hover: #f0f1f5;
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a68;
-  --text-muted: #8888a0;
-  --accent: #6366f1;
-  --accent-light: #818cf8;
-  --border: #e2e4ee;
-  --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
-  --gradient-2: linear-gradient(135deg, #f5f6fa 0%, #ffffff 100%);
-  --gradient-3: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%);
+  --bg-card-hover: #f0fdfa;
+  --text-primary: #111111;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #0d9488;
+  --accent-light: #14b8a6;
+  --border: #e5e7eb;
+  --gradient-1: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #2dd4bf 100%);
+  --gradient-2: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+  --gradient-3: linear-gradient(135deg, #ec4899 0%, #0d9488 50%, #14b8a6 100%);
   --gradient-4: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.10);
-  --shadow-glow: 0 0 12px rgba(99,102,241,0.08);
-  --nav-bg: rgba(255,255,255,0.92);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-glow: 0 0 12px rgba(13,148,136,0.08);
+  --nav-bg: rgba(255,255,255,0.8);
 }
 
 * {
@@ -561,7 +561,31 @@ textarea {
   opacity: 1;
 }
 
-/* ── Light theme specific overrides ── */
+/* ── Clean Teal theme specific overrides ── */
+[data-theme="clean-teal"] .skill-card:hover {
+  border-color: rgba(13, 148, 136, 0.25);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.08);
+}
+
+[data-theme="clean-teal"] .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(13, 148, 136, 0.1);
+}
+
+[data-theme="clean-teal"] .glass-card:hover {
+  border-color: rgba(13, 148, 136, 0.2);
+  box-shadow: 0 0 24px rgba(13, 148, 136, 0.05);
+}
+
+[data-theme="clean-teal"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="clean-teal"] .modal-body code {
+  background: rgba(13, 148, 136, 0.06);
+}
+
+/* Light Clinical theme specific overrides */
 [data-theme="light-clinical"] .skill-card:hover {
   border-color: rgba(99, 102, 241, 0.25);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);

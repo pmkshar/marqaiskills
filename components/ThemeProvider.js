@@ -187,6 +187,32 @@ export const THEMES = {
       '--nav-bg': 'rgba(5,5,5,0.9)',
     },
   },
+  'clean-teal': {
+    name: 'Clean Teal',
+    icon: '✨',
+    preview: ['#0d9488', '#14b8a6', '#ffffff'],
+    vars: {
+      '--bg-primary': '#ffffff',
+      '--bg-secondary': '#f9fafb',
+      '--bg-card': '#ffffff',
+      '--bg-card-hover': '#f0fdfa',
+      '--text-primary': '#111111',
+      '--text-secondary': '#6b7280',
+      '--text-muted': '#9ca3af',
+      '--accent': '#0d9488',
+      '--accent-light': '#14b8a6',
+      '--border': '#e5e7eb',
+      '--gradient-1': 'linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #2dd4bf 100%)',
+      '--gradient-2': 'linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%)',
+      '--gradient-3': 'linear-gradient(135deg, #ec4899 0%, #0d9488 50%, #14b8a6 100%)',
+      '--gradient-4': 'linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%)',
+      '--shadow-sm': '0 1px 2px rgba(0,0,0,0.05)',
+      '--shadow-md': '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)',
+      '--shadow-lg': '0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06)',
+      '--shadow-glow': '0 0 12px rgba(13,148,136,0.08)',
+      '--nav-bg': 'rgba(255,255,255,0.8)',
+    },
+  },
   'aurora-nordic': {
     name: 'Aurora Nordic',
     icon: '🌌',
@@ -215,7 +241,7 @@ export const THEMES = {
   },
 };
 
-const DEFAULT_THEME = 'light-clinical';
+const DEFAULT_THEME = 'clean-teal';
 const STORAGE_KEY = 'marq-ai-theme';
 
 export function ThemeProvider({ children }) {

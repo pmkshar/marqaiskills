@@ -44,9 +44,9 @@ export default function Navbar() {
   return (
     <nav style={{
       position: 'sticky', top: 0, zIndex: 50,
-      background: 'var(--nav-bg, rgba(10,10,15,0.9))', backdropFilter: 'blur(16px)',
+      background: 'var(--nav-bg)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
       borderBottom: '1px solid var(--border)', padding: '0 24px',
-      display: 'flex', alignItems: 'center', height: 60,
+      display: 'flex', alignItems: 'center', height: 65,
     }}>
       <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}>
         <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--gradient-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 800, color: '#fff' }}>M</div>

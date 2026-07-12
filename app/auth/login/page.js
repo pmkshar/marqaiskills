@@ -35,12 +35,12 @@ export default function LoginPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', position: 'relative', overflow: 'hidden' }}>
       {/* Left side - Infographic */}
-      <div style={{ flex: 1, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.05) 50%, rgba(236,72,153,0.03) 100%)' }}>
+      <div style={{ flex: 1, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, rgba(13,148,136,0.06) 0%, rgba(20,184,166,0.04) 50%, rgba(45,212,191,0.02) 100%)' }}>
         <div style={{ position: 'absolute', inset: 0 }}>
           <img src="/images/hero-dashboard.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.06 }} />
         </div>
         <div style={{ position: 'relative', zIndex: 1, padding: 48, maxWidth: 480 }}>
-          <div style={{ width: 56, height: 56, borderRadius: 14, background: 'var(--gradient-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginBottom: 24, boxShadow: '0 4px 20px rgba(99,102,241,0.3)' }}>M</div>
+          <div style={{ width: 56, height: 56, borderRadius: 14, background: 'var(--gradient-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginBottom: 24, boxShadow: '0 4px 20px rgba(13,148,136,0.3)' }}>M</div>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: 16 }}>
             <span style={{ background: 'var(--gradient-1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Marq AI</span>
             <br />
@@ -112,7 +112,7 @@ export default function LoginPage() {
                 width: '100%', padding: '13px', background: 'var(--accent)', color: '#fff',
                 border: 'none', borderRadius: 10, fontSize: '0.95rem', fontWeight: 600,
                 cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.6 : 1,
-                boxShadow: '0 4px 16px rgba(99,102,241,0.3)', transition: 'all 0.2s',
+                boxShadow: '0 4px 16px rgba(13,148,136,0.3)', transition: 'all 0.2s',
               }}
             >
               {loading ? 'Signing in...' : 'Sign In'}
@@ -124,7 +124,7 @@ export default function LoginPage() {
             <a href="/auth/signup" style={{ color: 'var(--accent-light)', fontWeight: 500 }}>Sign up</a>
           </div>
 
-          <div style={{ marginTop: 28, padding: 16, background: 'rgba(99,102,241,0.05)', borderRadius: 12, border: '1px solid rgba(99,102,241,0.12)' }}>
+          <div style={{ marginTop: 28, padding: 16, background: 'rgba(13,148,136,0.04)', borderRadius: 12, border: '1px solid rgba(13,148,136,0.12)' }}>
             <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Demo Accounts</div>
             <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 2 }}>
               <div><span style={{ color: '#ef4444', fontWeight: 600 }}>Admin:</span> admin@marqai.io</div>
@@ -132,7 +132,7 @@ export default function LoginPage() {
               <div><span style={{ color: '#3b82f6', fontWeight: 600 }}>Editor:</span> editor@marqai.io</div>
               <div><span style={{ color: '#10b981', fontWeight: 600 }}>Viewer:</span> viewer@marqai.io</div>
             </div>
-            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: 6 }}>Password: <code style={{ background: 'rgba(99,102,241,0.1)', padding: '1px 4px', borderRadius: 3 }}>password</code></div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: 6 }}>Password: <code style={{ background: 'rgba(13,148,136,0.08)', padding: '1px 4px', borderRadius: 3 }}>password</code></div>
           </div>
         </div>
       </div>
