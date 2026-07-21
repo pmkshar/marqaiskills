@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import AIDirectoryClient from './AIDirectoryClient';
-import { getStats, getCategories } from '../../lib/ai-directory';
+import { getStats, getCategories, getIndustries } from '../../lib/ai-directory';
 
 export default async function AIDirectoryPage() {
   const session = await getServerSession(authOptions);
@@ -14,6 +14,7 @@ export default async function AIDirectoryPage() {
   const role = session.user.role;
   const stats = getStats(role);
   const categories = getCategories(role);
+  const industries = getIndustries(role);
   
-  return <AIDirectoryClient stats={stats} categories={categories} userRole={role} />;
+  return <AIDirectoryClient stats={stats} categories={categories} industries={industries} userRole={role} />;
 }

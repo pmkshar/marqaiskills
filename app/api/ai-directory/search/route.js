@@ -6,12 +6,13 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q') || '';
     const category = searchParams.get('category') || 'all';
+    const industry = searchParams.get('industry') || 'all';
     const role = searchParams.get('role') || 'viewer';
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '50');
 
     if (query.trim()) {
-      const results = searchProjects(query, role);
+      const results = searchProjects(query, role, industry);
       const start = (page - 1) * limit;
       const paginated = results.slice(start, start + limit);
       
@@ -26,10 +27,15 @@ export async function GET(request) {
 
     if (category !== 'all') {
       const grouped = getProjectsByCategory(role);
-      const catProjects = grouped[category] || {};
+      let catProjects = grouped[category] || {};
       let allProjects = [];
       for (const [subcat, projects] of Object.entries(catProjects)) {
         allProjects = allProjects.concat(projects);
+      }
+      
+      // Filter by industry if specified
+      if (industry && industry !== 'all') {
+        allProjects = allProjects.filter(p => p.industry && p.industry.includes(industry));
       }
       
       const start = (page - 1) * limit;
@@ -42,6 +48,21 @@ export async function GET(request) {
         total: allProjects.length,
         page,
         totalPages: Math.ceil(allProjects.length / limit),
+      });
+    }
+
+    // If industry filter is applied without category
+    if (industry && industry !== 'all') {
+      const results = searchProjects('', role, industry);
+      const start = (page - 1) * limit;
+      const paginated = results.slice(start, start + limit);
+      
+      return NextResponse.json({
+        success: true,
+        results: paginated,
+        total: results.length,
+        page,
+        totalPages: Math.ceil(results.length / limit),
       });
     }
 

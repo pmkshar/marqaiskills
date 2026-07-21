@@ -21,6 +21,18 @@ const CATEGORY_COLORS = {
 
 function ProjectCard({ project, color, onClick }) {
   const [hovered, setHovered] = useState(false);
+  const INDUSTRY_COLORS = {
+    'Technology & Software': '#10B981',
+    'Healthcare & Life Sciences': '#EC4899',
+    'Finance & Banking': '#F59E0B',
+    'Retail & E-Commerce': '#EF4444',
+    'Manufacturing & Supply Chain': '#06B6D4',
+    'Education & Training': '#8B5CF6',
+    'Telecommunications': '#3B82F6',
+    'Energy & Utilities': '#F97316',
+    'Media & Entertainment': '#A21CAF',
+    'Legal & Compliance': '#64748B',
+  };
   return (
     <div
       onClick={() => onClick(project)}
@@ -46,12 +58,26 @@ function ProjectCard({ project, color, onClick }) {
           }}>
             {project.name}
           </div>
-          <div style={{
-            fontSize: '0.7rem', color, fontWeight: 500,
-            background: color + '12', padding: '2px 6px', borderRadius: 3,
-            display: 'inline-block', marginTop: 4,
-          }}>
-            {project.subcategory}
+          <div style={{ display: 'flex', gap: 4, alignItems: 'center', flexWrap: 'wrap', marginTop: 4 }}>
+            <span style={{
+              fontSize: '0.7rem', color, fontWeight: 500,
+              background: color + '12', padding: '2px 6px', borderRadius: 3,
+            }}>
+              {project.subcategory}
+            </span>
+            {project.industry && project.industry.slice(0, 2).map((ind, i) => (
+              <span key={i} style={{
+                fontSize: '0.62rem', fontWeight: 500,
+                color: INDUSTRY_COLORS[ind] || '#64748B',
+                background: (INDUSTRY_COLORS[ind] || '#64748B') + '10',
+                padding: '1px 5px', borderRadius: 3,
+              }}>
+                {ind.split(' & ')[0]}
+              </span>
+            ))}
+            {project.industry && project.industry.length > 2 && (
+              <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>+{project.industry.length - 2}</span>
+            )}
           </div>
         </div>
         <a
@@ -78,6 +104,30 @@ function ProjectCard({ project, color, onClick }) {
 
 function ProjectModal({ project, onClose }) {
   const color = CATEGORY_COLORS[project.category] || '#6366f1';
+  const INDUSTRY_COLORS = {
+    'Technology & Software': '#10B981',
+    'Healthcare & Life Sciences': '#EC4899',
+    'Finance & Banking': '#F59E0B',
+    'Retail & E-Commerce': '#EF4444',
+    'Manufacturing & Supply Chain': '#06B6D4',
+    'Education & Training': '#8B5CF6',
+    'Telecommunications': '#3B82F6',
+    'Energy & Utilities': '#F97316',
+    'Media & Entertainment': '#A21CAF',
+    'Legal & Compliance': '#64748B',
+  };
+  const INDUSTRY_ICONS = {
+    'Technology & Software': '💻',
+    'Healthcare & Life Sciences': '🏥',
+    'Finance & Banking': '🏦',
+    'Retail & E-Commerce': '🛒',
+    'Manufacturing & Supply Chain': '🏭',
+    'Education & Training': '🎓',
+    'Telecommunications': '📡',
+    'Energy & Utilities': '⚡',
+    'Media & Entertainment': '🎬',
+    'Legal & Compliance': '⚖️',
+  };
   if (!project) return null;
 
   return (
@@ -136,6 +186,24 @@ function ProjectModal({ project, onClose }) {
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Subcategory</td>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color }}>{project.subcategory}</td>
                 </tr>
+                <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Industries</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem' }}>
+                    <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                      {(project.industry || []).map((ind, i) => (
+                        <span key={i} style={{
+                          fontSize: '0.72rem', fontWeight: 500,
+                          color: INDUSTRY_COLORS[ind] || '#64748B',
+                          background: (INDUSTRY_COLORS[ind] || '#64748B') + '12',
+                          padding: '2px 8px', borderRadius: 4,
+                          display: 'inline-flex', alignItems: 'center', gap: 4,
+                        }}>
+                          {INDUSTRY_ICONS[ind] || '🏢'} {ind}
+                        </span>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
                 <tr>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Platform</td>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-primary)' }}>Marq AI Skills</td>
@@ -149,9 +217,10 @@ function ProjectModal({ project, onClose }) {
   );
 }
 
-export default function AIDirectoryClient({ stats, categories, userRole }) {
+export default function AIDirectoryClient({ stats, categories, industries, userRole }) {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedIndustry, setSelectedIndustry] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -161,12 +230,13 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
 
   const LIMIT = 50;
 
-  const fetchProjects = useCallback(async (query, category, pageNum) => {
+  const fetchProjects = useCallback(async (query, category, industry, pageNum) => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
         q: query || '',
         category: category || 'all',
+        industry: industry || 'all',
         role: userRole || 'viewer',
         page: String(pageNum),
         limit: String(LIMIT),
@@ -186,11 +256,16 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
   }, [userRole]);
 
   useEffect(() => {
-    fetchProjects(search, selectedCategory, page);
-  }, [search, selectedCategory, page, fetchProjects]);
+    fetchProjects(search, selectedCategory, selectedIndustry, page);
+  }, [search, selectedCategory, selectedIndustry, page, fetchProjects]);
 
   const handleCategoryClick = (catKey) => {
     setSelectedCategory(selectedCategory === catKey ? 'all' : catKey);
+    setPage(1);
+  };
+
+  const handleIndustryClick = (indKey) => {
+    setSelectedIndustry(selectedIndustry === indKey ? 'all' : indKey);
     setPage(1);
   };
 
@@ -289,6 +364,59 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
         </button>
       </div>
 
+      {/* Industry Filter */}
+      {industries && Object.keys(industries).length > 0 && (
+        <div style={{
+          marginBottom: 20, padding: '16px 20px',
+          background: 'var(--bg-card)', border: '1px solid var(--border)',
+          borderRadius: 12,
+        }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12,
+            fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-primary)',
+          }}>
+            <span style={{ fontSize: '1rem' }}>🏢</span>
+            <span>Filter by Industry</span>
+            {selectedIndustry !== 'all' && (
+              <button
+                onClick={() => { setSelectedIndustry('all'); setPage(1); }}
+                style={{
+                  marginLeft: 'auto', padding: '3px 10px', borderRadius: 6,
+                  background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)',
+                  color: '#ef4444', fontSize: '0.72rem', cursor: 'pointer',
+                  transition: 'all 0.15s',
+                }}
+              >
+                ✕ Clear
+              </button>
+            )}
+          </div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {Object.entries(industries)
+              .sort(([,a],[,b]) => b.count - a.count)
+              .map(([indKey, meta]) => (
+              <button
+                key={indKey}
+                onClick={() => handleIndustryClick(indKey)}
+                style={{
+                  padding: '6px 12px', borderRadius: 8, cursor: 'pointer',
+                  background: selectedIndustry === indKey ? meta.color + '15' : 'var(--bg-primary)',
+                  border: `1px solid ${selectedIndustry === indKey ? meta.color + '40' : 'var(--border)'}`,
+                  color: selectedIndustry === indKey ? meta.color : 'var(--text-secondary)',
+                  fontSize: '0.75rem', fontWeight: selectedIndustry === indKey ? 600 : 400,
+                  transition: 'all 0.15s',
+                  display: 'flex', alignItems: 'center', gap: 5,
+                }}
+              >
+                <span>{meta.icon}</span>
+                <span>{meta.shortName}</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginLeft: 2 }}>({meta.count})</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Search */}
       <div style={{ marginBottom: 24 }}>
         <input
@@ -306,6 +434,7 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           {loading ? 'Loading...' : `${totalResults} project${totalResults !== 1 ? 's' : ''} found`}
           {selectedCategory !== 'all' && ` in ${selectedCategory}`}
+          {selectedIndustry !== 'all' && ` for ${selectedIndustry}`}
           {search && ` matching "${search}"`}
         </span>
         {totalPages > 1 && (
