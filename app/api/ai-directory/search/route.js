@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { searchProjects, getProjectsByCategory, getCategories, getCapabilityCounts } from '../../../../lib/ai-directory';
+import { searchProjects, getProjectsByCategory, getCategories, getCapabilityCounts, getIndustries } from '../../../../lib/ai-directory';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,6 +9,7 @@ export async function GET(request) {
     const query = searchParams.get('q') || '';
     const category = searchParams.get('category') || 'all';
     const capability = searchParams.get('capability') || 'all';
+    const industry = searchParams.get('industry') || 'all';
     const role = searchParams.get('role') || 'viewer';
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '50');
@@ -16,16 +17,20 @@ export async function GET(request) {
     let results = [];
 
     if (query.trim()) {
-      results = searchProjects(query, role);
+      results = searchProjects(query, role, industry);
     } else if (category !== 'all') {
       const grouped = getProjectsByCategory(role);
       const catProjects = grouped[category] || {};
       for (const [subcat, projects] of Object.entries(catProjects)) {
         results = results.concat(projects);
       }
+      // Filter by industry if specified
+      if (industry && industry !== 'all') {
+        results = results.filter(p => p.industry && p.industry.includes(industry));
+      }
     } else {
       // Return all accessible projects
-      results = searchProjects('', role);
+      results = searchProjects('', role, industry);
     }
 
     // Filter by capability
@@ -47,7 +52,7 @@ export async function GET(request) {
     };
 
     // Include capability counts on first page with no filters
-    if (page === 1 && category === 'all' && !query.trim() && capability === 'all') {
+    if (page === 1 && category === 'all' && !query.trim() && capability === 'all' && industry === 'all') {
       response.capabilityCounts = getCapabilityCounts(role);
     }
 
@@ -59,6 +64,11 @@ export async function GET(request) {
     if (category === 'all' && !query.trim()) {
       const categories = getCategories(role);
       response.categories = categories;
+    }
+
+    // Include industries on first page with no filters
+    if (page === 1 && category === 'all' && !query.trim() && industry === 'all') {
+      response.industries = getIndustries(role);
     }
 
     return NextResponse.json(response);

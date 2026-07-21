@@ -33,6 +33,33 @@ const CAPABILITIES = {
   Embeddings:{ icon: '📊', color: '#14b8a6', bg: 'rgba(20,184,166,0.10)', border: 'rgba(20,184,166,0.25)' },
 };
 
+// ─── Industry Badge Definitions ───────────────────────────────
+const INDUSTRY_COLORS = {
+  'Technology & Software': '#0d9488',
+  'Healthcare & Life Sciences': '#EC4899',
+  'Finance & Banking': '#F59E0B',
+  'Retail & E-Commerce': '#EF4444',
+  'Manufacturing & Supply Chain': '#06B6D4',
+  'Education & Training': '#8B5CF6',
+  'Telecommunications': '#3B82F6',
+  'Energy & Utilities': '#F97316',
+  'Media & Entertainment': '#A21CAF',
+  'Legal & Compliance': '#64748B',
+};
+
+const INDUSTRY_ICONS = {
+  'Technology & Software': '💻',
+  'Healthcare & Life Sciences': '🏥',
+  'Finance & Banking': '🏦',
+  'Retail & E-Commerce': '🛒',
+  'Manufacturing & Supply Chain': '🏭',
+  'Education & Training': '🎓',
+  'Telecommunications': '📡',
+  'Energy & Utilities': '⚡',
+  'Media & Entertainment': '🎬',
+  'Legal & Compliance': '⚖️',
+};
+
 function CapBadge({ cap, small }) {
   const def = CAPABILITIES[cap];
   if (!def) return null;
@@ -57,9 +84,35 @@ function CapBadge({ cap, small }) {
   );
 }
 
+function IndustryBadge({ industry, small }) {
+  const color = INDUSTRY_COLORS[industry] || '#64748B';
+  const icon = INDUSTRY_ICONS[industry] || '🏢';
+  const shortName = industry.split(' & ')[0];
+  return (
+    <span
+      title={industry}
+      style={{
+        display: 'inline-flex', alignItems: 'center', gap: small ? 2 : 4,
+        fontSize: small ? '0.58rem' : '0.68rem',
+        fontWeight: 500, color,
+        background: color + '10',
+        border: `1px solid ${color}25`,
+        padding: small ? '1px 5px' : '2px 8px',
+        borderRadius: 5,
+        whiteSpace: 'nowrap',
+        lineHeight: 1.4,
+      }}
+    >
+      <span style={{ fontSize: small ? '0.52rem' : '0.65rem' }}>{icon}</span>
+      {small ? shortName : industry}
+    </span>
+  );
+}
+
 function ProjectCard({ project, color, onClick }) {
   const [hovered, setHovered] = useState(false);
   const caps = project.capabilities || [];
+  const industries = project.industry || [];
   return (
     <div
       onClick={() => onClick(project)}
@@ -85,12 +138,19 @@ function ProjectCard({ project, color, onClick }) {
           }}>
             {project.name}
           </div>
-          <div style={{
-            fontSize: '0.7rem', color, fontWeight: 500,
-            background: color + '12', padding: '2px 6px', borderRadius: 3,
-            display: 'inline-block', marginTop: 4,
-          }}>
-            {project.subcategory}
+          <div style={{ display: 'flex', gap: 4, alignItems: 'center', flexWrap: 'wrap', marginTop: 4 }}>
+            <span style={{
+              fontSize: '0.7rem', color, fontWeight: 500,
+              background: color + '12', padding: '2px 6px', borderRadius: 3,
+            }}>
+              {project.subcategory}
+            </span>
+            {industries.slice(0, 2).map((ind, i) => (
+              <IndustryBadge key={i} industry={ind} small />
+            ))}
+            {industries.length > 2 && (
+              <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>+{industries.length - 2}</span>
+            )}
           </div>
         </div>
         <a
@@ -129,6 +189,7 @@ function ProjectCard({ project, color, onClick }) {
 function ProjectModal({ project, onClose }) {
   const color = CATEGORY_COLORS[project.category] || '#0d9488';
   const caps = project.capabilities || [];
+  const industries = project.industry || [];
   if (!project) return null;
 
   return (
@@ -150,6 +211,16 @@ function ProjectModal({ project, onClose }) {
             </span>
           </div>
         </div>
+
+        {/* Industries Section in Modal */}
+        {industries.length > 0 && (
+          <div style={{ marginBottom: 20 }}>
+            <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>Industries</h3>
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+              {industries.map((ind, i) => <IndustryBadge key={i} industry={ind} />)}
+            </div>
+          </div>
+        )}
 
         {/* Capabilities Section in Modal */}
         {caps.length > 0 && (
@@ -198,6 +269,14 @@ function ProjectModal({ project, onClose }) {
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color }}>{project.subcategory}</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Industries</td>
+                  <td style={{ padding: '6px 10px', fontSize: '0.82rem' }}>
+                    <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                      {industries.map((ind, i) => <IndustryBadge key={i} industry={ind} small />)}
+                    </div>
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border)' }}>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>Capabilities</td>
                   <td style={{ padding: '6px 10px', fontSize: '0.82rem', color: 'var(--text-primary)' }}>{caps.join(', ') || 'N/A'}</td>
                 </tr>
@@ -214,10 +293,11 @@ function ProjectModal({ project, onClose }) {
   );
 }
 
-export default function AIDirectoryClient({ stats, categories, userRole }) {
+export default function AIDirectoryClient({ stats, categories, industries, userRole }) {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedCapability, setSelectedCapability] = useState('all');
+  const [selectedIndustry, setSelectedIndustry] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -227,13 +307,14 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
 
   const LIMIT = 50;
 
-  const fetchProjects = useCallback(async (query, category, capability, pageNum) => {
+  const fetchProjects = useCallback(async (query, category, capability, industryParam, pageNum) => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
         q: query || '',
         category: category || 'all',
         capability: capability || 'all',
+        industry: industryParam || 'all',
         role: userRole || 'viewer',
         page: String(pageNum),
         limit: String(LIMIT),
@@ -253,8 +334,8 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
   }, [userRole]);
 
   useEffect(() => {
-    fetchProjects(search, selectedCategory, selectedCapability, page);
-  }, [search, selectedCategory, selectedCapability, page, fetchProjects]);
+    fetchProjects(search, selectedCategory, selectedCapability, selectedIndustry, page);
+  }, [search, selectedCategory, selectedCapability, selectedIndustry, page, fetchProjects]);
 
   const handleCategoryClick = (catKey) => {
     setSelectedCategory(selectedCategory === catKey ? 'all' : catKey);
@@ -266,6 +347,11 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
     setPage(1);
   };
 
+  const handleIndustryClick = (indKey) => {
+    setSelectedIndustry(selectedIndustry === indKey ? 'all' : indKey);
+    setPage(1);
+  };
+
   const handleSearch = (e) => {
     setSearch(e.target.value);
     setPage(1);
@@ -273,7 +359,6 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
 
   // Count projects per capability from stats
   const capabilityCounts = useMemo(() => {
-    // We'll derive from the loaded projects batch, but also show totals from stats
     return stats.capabilityCounts || {};
   }, [stats]);
 
@@ -302,7 +387,7 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
           </span>
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-          Curated directory of the best AI projects, models, tools, and infrastructure — powered by Marq AI. Browse by category or search to find the right tool for your project.
+          Curated directory of the best AI projects, models, tools, and infrastructure — powered by Marq AI. Browse by category, industry, or search to find the right tool for your project.
         </p>
       </div>
 
@@ -331,11 +416,64 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
         </div>
         <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px' }}>
           <div style={{ fontSize: '1.5rem', fontWeight: 800, background: 'var(--gradient-4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            10
+            {industries ? Object.keys(industries).length : 10}
           </div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Modalities</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Industries</div>
         </div>
       </div>
+
+      {/* ─── Industry Filter ──────────────────────────── */}
+      {industries && Object.keys(industries).length > 0 && (
+        <div style={{
+          marginBottom: 16, padding: '16px 20px',
+          background: 'var(--bg-card)', border: '1px solid var(--border)',
+          borderRadius: 12,
+        }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12,
+            fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-primary)',
+          }}>
+            <span style={{ fontSize: '1rem' }}>🏢</span>
+            <span>Filter by Industry</span>
+            {selectedIndustry !== 'all' && (
+              <button
+                onClick={() => { setSelectedIndustry('all'); setPage(1); }}
+                style={{
+                  marginLeft: 'auto', padding: '3px 10px', borderRadius: 6,
+                  background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)',
+                  color: '#ef4444', fontSize: '0.72rem', cursor: 'pointer',
+                  transition: 'all 0.15s',
+                }}
+              >
+                ✕ Clear
+              </button>
+            )}
+          </div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {Object.entries(industries)
+              .sort(([,a],[,b]) => b.count - a.count)
+              .map(([indKey, meta]) => (
+              <button
+                key={indKey}
+                onClick={() => handleIndustryClick(indKey)}
+                style={{
+                  padding: '6px 12px', borderRadius: 8, cursor: 'pointer',
+                  background: selectedIndustry === indKey ? meta.color + '15' : 'var(--bg-primary)',
+                  border: `1px solid ${selectedIndustry === indKey ? meta.color + '40' : 'var(--border)'}`,
+                  color: selectedIndustry === indKey ? meta.color : 'var(--text-secondary)',
+                  fontSize: '0.75rem', fontWeight: selectedIndustry === indKey ? 600 : 400,
+                  transition: 'all 0.15s',
+                  display: 'flex', alignItems: 'center', gap: 5,
+                }}
+              >
+                <span>{meta.icon}</span>
+                <span>{meta.shortName}</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginLeft: 2 }}>({meta.count})</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ─── Capabilities Filter ──────────────────────────── */}
       <div style={{ marginBottom: 16 }}>
@@ -425,9 +563,21 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
       </div>
 
       {/* Active filters summary */}
-      {(selectedCapability !== 'all' || selectedCategory !== 'all' || search) && (
+      {(selectedIndustry !== 'all' || selectedCapability !== 'all' || selectedCategory !== 'all' || search) && (
         <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Active filters:</span>
+          {selectedIndustry !== 'all' && (
+            <span style={{ 
+              display: 'inline-flex', alignItems: 'center', gap: 4,
+              fontSize: '0.72rem', padding: '3px 8px', borderRadius: 6,
+              background: (industries[selectedIndustry]?.color || '#64748B') + '10',
+              color: industries[selectedIndustry]?.color || '#64748B',
+              border: `1px solid ${(industries[selectedIndustry]?.color || '#64748B')}25`,
+            }}>
+              {industries[selectedIndustry]?.icon} {industries[selectedIndustry]?.shortName || selectedIndustry}
+              <span onClick={() => { setSelectedIndustry('all'); setPage(1); }} style={{ cursor: 'pointer', marginLeft: 2, opacity: 0.7 }}>✕</span>
+            </span>
+          )}
           {selectedCapability !== 'all' && (
             <span style={{ 
               display: 'inline-flex', alignItems: 'center', gap: 4,
@@ -469,6 +619,7 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           {loading ? 'Loading...' : `${totalResults} project${totalResults !== 1 ? 's' : ''} found`}
           {selectedCategory !== 'all' && ` in ${categories[selectedCategory]?.shortName || selectedCategory}`}
+          {selectedIndustry !== 'all' && ` for ${industries[selectedIndustry]?.shortName || selectedIndustry}`}
           {selectedCapability !== 'all' && ` with ${selectedCapability}`}
           {search && ` matching "${search}"`}
         </span>
@@ -548,7 +699,7 @@ export default function AIDirectoryClient({ stats, categories, userRole }) {
         <div style={{ textAlign: 'center', padding: 48, color: 'var(--text-muted)' }}>
           <div style={{ fontSize: '2rem', marginBottom: 16 }}>🔍</div>
           <div>No projects found</div>
-          <div style={{ fontSize: '0.85rem', marginTop: 8 }}>Try a different search, category, or capability filter</div>
+          <div style={{ fontSize: '0.85rem', marginTop: 8 }}>Try a different search, category, industry, or capability filter</div>
         </div>
       )}
 

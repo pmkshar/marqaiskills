@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import AIDirectoryClient from './AIDirectoryClient';
-import { getStats, getCategories } from '../../lib/ai-directory';
+import { getStats, getCategories, getIndustries } from '../../lib/ai-directory';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,6 +23,7 @@ export default async function AIDirectoryPage() {
   const role = session.user.role;
   let stats = { totalProjects: 0, totalCategories: 0, totalSubcategories: 0, categories: {} };
   let categories = {};
+  let industries = {};
   
   try {
     stats = getStats(role);
@@ -36,5 +37,11 @@ export default async function AIDirectoryPage() {
     console.error('AI Directory categories error:', e.message);
   }
   
-  return <AIDirectoryClient stats={stats} categories={categories} userRole={role} />;
+  try {
+    industries = getIndustries(role);
+  } catch (e) {
+    console.error('AI Directory industries error:', e.message);
+  }
+  
+  return <AIDirectoryClient stats={stats} categories={categories} industries={industries} userRole={role} />;
 }
